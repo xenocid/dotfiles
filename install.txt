@@ -1,0 +1,5 @@
+Prerequisites:
+
+1. Install XCode 
+2. Add /usr/local/bin/zsh to /etc/shells
+3. Run bootstrap.sh
