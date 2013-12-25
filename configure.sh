@@ -140,10 +140,15 @@ install_homebrew_packages_from_file () {
 }
 
 install_homebrew_packages () {
+  # Update brew definitions
+  brew update
+  # Go through all topics and install brew packages for each one
   for source in `find $DOTFILES_ROOT -maxdepth 2 -name \*.brew`
   do
     install_homebrew_packages_from_file $source
   done
+  # Upgrade existing packages 
+  brew upgrade
 }
 
 # -----------------------------------------------------------------------
