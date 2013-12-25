@@ -1,8 +1,5 @@
-#!/usr/bin/env zsh
-
-# trap 'ret=$?; test $ret -ne 0 && printf "failed\n\n" >&2; exit $ret' EXIT
-
-set -e
+# Unset = expansion, which is causing '= not found' error on string comparisons
+unsetopt EQUALS
 
 DOTFILES_ROOT="`pwd`"
 
@@ -55,11 +52,10 @@ symlink_files () {
 			backup=false
 			skip=false
 
-			echo "Test 1"
-			if [ "$overwrite_all" '==' "false" ] && [ "$backup_all" '==' "false" ] && [ "$skip_all" '==' "false" ]
+			if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
 			then
 				user "File already exists: `basename $source`, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
-				read -n 1 action
+				read action
 
 				case "$action" in
 					o )
@@ -79,19 +75,19 @@ symlink_files () {
 				esac
 			fi
 
-			if [ "$overwrite" '==' "true" ] || [ "$overwrite_all" '==' "true" ]
+			if [ "$overwrite" == "true" ] || [ "$overwrite_all" == "true" ]
 			then
 				rm -rf $dest
 				success "removed $dest"
 			fi
 
-			if [ "$backup" '==' "true" ] || [ "$backup_all" '==' "true" ]
+			if [ "$backup" == "true" ] || [ "$backup_all" == "true" ]
 			then
 				mv $dest $dest\.backup
 				success "moved $dest to $dest.backup"
 			fi
 
-			if [ "$skip" '==' "false" ] && [ "$skip_all" '==' "false" ]
+			if [ "$skip" == "false" ] && [ "$skip_all" == "false" ]
 			then
 				link_files $source $dest
 			else
@@ -124,8 +120,8 @@ symlink_folders () {
 # Add bin to the path
 dest="$HOME/.bin"
 if [ ! -d "$dest" ]; then
-  link_files "$DOTFILES_ROOT/bin/" $dest
-  add_to_path $dest
+ link_files "$DOTFILES_ROOT/bin/" $dest
+ add_to_path $dest
 fi
 
 # Symlink folders
