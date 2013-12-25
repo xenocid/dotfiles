@@ -1,0 +1,14 @@
+# Path to my zsh configuration.
+DOTFILES=$HOME/Config/dotfiles
+ZSH=$DOTFILES/zsh
+
+# History file parameters (path to the history file, size of the history etc)
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+
+# Bind keys to vi-mode instead of default emacs-mode
+bindkey -v
+
+# Add /usr/local/bin to the path, so we can enable Homebrew & all its packages
+export PATH=/usr/local/bin:$PATH
