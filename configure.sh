@@ -151,6 +151,9 @@ install_homebrew_packages () {
   # Upgrade existing packages 
   info "Upgrading installed packages...\n"
   brew upgrade
+  # Linking apps
+  info "Linking Homebrew apps...\n"
+  brew linkapps
 }
 
 # -----------------------------------------------------------------------
