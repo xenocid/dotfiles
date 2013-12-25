@@ -114,6 +114,37 @@ symlink_folders () {
   done
 }
 
+run_topic_configure () {
+  info "Running per-topic configurations...\n"
+
+  # load every completion after autocomplete loads
+  for file in `find $DOTFILES_ROOT -maxdepth 2 -name \configure.sh`
+  do
+    if [ ! "$file" == "$DOTFILES_ROOT/configure.sh" ]
+    then
+      source  $file
+    fi
+  done
+}
+
+install_homebrew_packages_from_file () {
+  while read line;
+  do
+    if [ $(brew list | grep -E "^$line$") == $line ]
+    then
+      info "$line is already installed. Skipping.\n"
+    else 
+      brew install $line
+    fi
+  done < $1
+}
+
+install_homebrew_packages () {
+  for source in `find $DOTFILES_ROOT -maxdepth 2 -name \*.brew`
+  do
+    install_homebrew_packages_from_file $source
+  done
+}
 
 # -----------------------------------------------------------------------
 
@@ -130,6 +161,10 @@ symlink_folders
 # Symlink files
 symlink_files
 
+# Install topic packages via Homebrew 
+install_homebrew_packages
 
+# Run topic configure scripts
+run_topic_configure
 
 
