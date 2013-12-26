@@ -1,0 +1,3 @@
+gfortran
+homebrew/science/octave
+gnuplot --aquaterm
