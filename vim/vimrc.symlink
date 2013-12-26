@@ -1,0 +1,125 @@
+if has('vim_starting')
+   set nocompatible               " Be iMproved
+   set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'Shougo/unite.vim'
+
+" JavaScript Bundles
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'marijnh/tern_for_vim'
+NeoBundle 'kchmck/vim-coffee-script'
+
+filetype plugin indent on
+
+NeoBundleCheck
+
+" When vimrc is edited, reload it
+autocmd! bufwritepost vimrc source ~/.vimrc
+autocmd! bufwritepost vimrc.symlink source ~/.vimrc
+
+set t_Co=256
+syntax on
+
+let mapleader=","
+let g:mapleader =","
+
+set nostartofline          " keep cursor in same column for long-range motion cmds
+set incsearch             " Highlight pattern matches as you type
+set ignorecase                   " ignore case when using a search pattern
+set smartcase                    " override 'ignorecase' when pattern has upper case character
+set scrolloff=3     " Number of screen lines to show around the cursor
+set linebreak       " For lines longer than the window, wrap intelligently. This doesn't insert hard line breaks.
+set showbreak=↪\ \
+set sidescrolloff=2
+set cmdheight=2
+set laststatus=2    " Always display the status line
+set number          " show line numbers
+set textwidth=80
+set autoindent
+set nowrap
+set whichwrap+=h,l,<,>,[,]
+
+" Fixing common typos
+command! W w
+command! Q q
+command! Wq wq
+command! WQ wq
+command! Wa wa
+command! WA wa
+
+" -----------------------------------------------------------------------------
+" Backups
+" -----------------------------------------------------------------------------
+
+set nobackup
+set nowritebackup
+set noswapfile
+
+" =======================================================
+" Plugin Settings
+"
+" YouCompleteMe
+
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_confirm_extra_conf=0
+set completeopt-=preview
+
+" ----------------------------------------------------------------------------
+" vim-airline
+" ----------------------------------------------------------------------------
+
+let g:airline_detect_modified=1
+let g:airline_enable_fugitive=1
+let g:airline_enable_syntastic=1
+let g:airline_powerline_fonts=1
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_theme='badwolf'
+
+let g:airline#extensions#tabline#enabled = 2
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#buffer_min_count = 1"
+
+" ----------------------------------------------------------------------------
+" NerdTree
+" ----------------------------------------------------------------------------
+
+nnoremap <leader>nn :NERDTreeToggle<CR>
+nnoremap <leader>nf :NERDTreeFind<CR>
+let NERDTreeShowBookmarks=1
+let NERDTreeChDirMode=2 " Change the NERDTree directory to the root node
+let g:NERDTreeWinSize=40
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd vimenter * if !argc() | NERDTree | endif    " Automatically open NERDtree, if vim launched w/o files specified
+
+" ----------------------------------------------------------------------------
+" NerdCommenter
+" ----------------------------------------------------------------------------
+
+map <leader>/ <plug>NERDCommenterToggle<CR>
+imap <leader>/ <Esc><plug>NERDCommenterToggle<CR>i"
+
+" =======================================================
+" Language-specific Settings
+
+" JavaScript
+au FileType javascript set shiftwidth=2
+au FileType javascript set tabstop=2
+au FileType javascript set softtabstop=2
+au BufRead,BufNewFile,BufWrite {*.json} set ft=javascript"
