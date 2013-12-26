@@ -1,0 +1,29 @@
+# ~/.tmuxinator/gpn-server.yml
+
+name: gpn-server
+root: ~/Dev/RN/gpn-server
+rbenv: 1.9.3-p448
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+#pre_window: rbenv shell 1.9.3-p448
+
+  
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+#pre:
+    #- export RBENV_DIR=
+    #- export RBENV_VERSION=
+
+windows:
+  - editor: vim .
+  - shell: gst
+    git: gst
+  - server: bundle exec rails s
+  - logs: tail -f logs/development.log

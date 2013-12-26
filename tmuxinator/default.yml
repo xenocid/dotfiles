@@ -1,0 +1,15 @@
+# ~/.tmuxinator/default.yml
+# you can make as many tabs as you wish...
+
+project_name: MyProject
+project_root: ~/Dev/
+rvm: ruby-1.9.3-p194@wishlist-proxy
+pre: 
+  - export RBENV_DIR=
+tabs:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - vim
+        - # just shell
+  - shell: 
