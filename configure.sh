@@ -122,6 +122,7 @@ run_topic_configure () {
   do
     if [ ! "$file" == "$DOTFILES_ROOT/configure.sh" ]
     then
+      info "Processing configuration from $file\n"
       source  $file
     fi
   done
