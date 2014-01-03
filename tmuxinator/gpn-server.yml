@@ -9,4 +9,8 @@ windows:
   - shell: 
   - git: gst
   - server: bundle exec rails s
-  - logs: tail -f logs/development.log
+  - services:
+      layout: main-horizontal
+      panes:
+          - mongod
+          - redis-server

@@ -1,9 +1,8 @@
-# ~/.tmuxinator/budge.yml
-# you can make as many tabs as you wish...
+# ~/.tmuxinator/dotfiles.yml
 
-project_name: dotfiles
-project_root: ~/Config/dotfiles
-pre: 
-tabs:
-  - vim: vim .
+name: dotfiles
+root: ~/Config/dotfiles
+
+windows:
+  - editor: vim .
   - shell: 
