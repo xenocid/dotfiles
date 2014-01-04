@@ -289,10 +289,10 @@ endfunction
 
 set backup
 set noswapfile
-set backupdir=$HOME/.vim/tmp/backup/
-set undodir=$HOME/.vim/tmp/undo/
-set directory=$HOME/.vim/tmp/swap/
-set viminfo+=n$HOME/.vim/tmp/viminfo
+set backupdir=$HOME/.tmp/backup/
+set undodir=$HOME/.tmp/undo/
+set directory=$HOME/.tmp/swap/
+set viminfo+=n$HOME/.tmp/viminfo
 
 " make this dirs if no exists previously
 silent! call MakeDirIfNoExists(&undodir)
