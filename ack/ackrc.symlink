@@ -4,6 +4,7 @@
 --ignore-dir=.idea/
 --ignore-dir=node_modules/
 --ignore-dir=vendor/
+--ignore-dir=log/
 
 --type-add=css=scss
 --type-add=ruby=.haml,.feature,.ru,.lock
