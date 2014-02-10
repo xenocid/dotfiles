@@ -8,3 +8,4 @@ windows:
   - editor: vim .
   - shell: 
   - git: gst
+  - server: grunt serve
