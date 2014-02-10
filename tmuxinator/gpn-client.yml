@@ -1,0 +1,10 @@
+# ~/.tmuxinator/gpn-client.yml
+
+name: gpn-client
+root: ~/Dev/RN/gpn-client
+pre_window: rbenv shell 1.9.3-p484
+
+windows:
+  - editor: vim .
+  - shell: 
+  - git: gst
