@@ -98,6 +98,7 @@ NeoBundle 'jimsei/winresizer'
 
 " JSON
 NeoBundleLazy 'vim-scripts/JSON.vim', {'autoload': {'filetypes': ['json']}}
+NeoBundleLazy 'tpope/vim-jdaddy', {'autoload': {'Filetypes': ['json']}}
 
 " tmux
 
