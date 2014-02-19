@@ -63,6 +63,7 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'vim-scripts/utl.vim'
 NeoBundle 'delimitMate.vim'
+NeoBundle 'godlygeek/tabular'
 " Smart and fast date changer
 NeoBundle 'tpope/vim-speeddating'
 " to surround vim objects with a pair of identical chars
