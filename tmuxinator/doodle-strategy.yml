@@ -1,0 +1,11 @@
+# ~/.tmuxinator/gpn-client.yml
+
+name: doodle-strategy
+root: ~/Dev/Xenocid/DoodleStrategy
+pre_window: rbenv shell 1.9.3-p484
+
+windows:
+  - editor: vim .
+  - shell: 
+  - git: gitsh
+  - server: grunt serve
