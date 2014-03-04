@@ -1,0 +1,10 @@
+# ~/.tmuxinator/gpn-server.yml
+
+name: gpn-data-science
+root: ~/Dev/RN/gpn-data-science
+pre_window: rbenv shell 1.9.3-p484
+
+windows:
+  - editor: vim .
+  - shell: 
+  - git: gst
