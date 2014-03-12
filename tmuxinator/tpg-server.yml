@@ -1,0 +1,14 @@
+# ~/.tmuxinator/default.yml
+# you can make as many tabs as you wish...
+
+project_name: tpg-server
+project_root: ~/Dev/Xenocid/tpg
+pre_window: rbenv shell 2.1
+windows:
+  - editor: vim .
+  - shell: 
+  - git: gst
+  - server: bundle exec rails s
+  - services:
+      layout: main-horizontal
+      panes:
