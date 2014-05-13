@@ -1,3 +1,4 @@
 qt
 imagemagick
 cmake
+s3cmd
