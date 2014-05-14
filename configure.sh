@@ -140,6 +140,20 @@ install_homebrew_packages_from_file () {
   done < $1
 }
 
+install_homebrew_cask_packages_from_file () {
+  brew tap caskroom/cask
+  brew install brew-cask
+  while read line;
+  do
+    if [ $(brew list | grep -E "^$line$") == $line ]
+    then
+      info "$line is already installed. Skipping.\n"
+    else 
+      brew cask install $line
+    fi
+  done < $1
+}
+
 install_homebrew_packages () {
   # Update brew definitions
   info "Updating Homebrew formulas. Stay calm...\n"
@@ -148,6 +162,10 @@ install_homebrew_packages () {
   for source in `find $DOTFILES_ROOT -maxdepth 2 -name \*.brew`
   do
     install_homebrew_packages_from_file $source
+  done
+  for source in `find $DOTFILES_ROOT -maxdepth 2 -name \*.cask`
+  do
+    install_homebrew_cask_packages_from_file $source
   done
   # Upgrade existing packages 
   info "Upgrading installed packages...\n"
