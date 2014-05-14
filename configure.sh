@@ -141,6 +141,8 @@ install_homebrew_packages_from_file () {
 }
 
 install_homebrew_cask_packages_from_file () {
+  brew tap caskroom/cask
+  brew install brew-cask
   while read line;
   do
     if [ $(brew list | grep -E "^$line$") == $line ]
