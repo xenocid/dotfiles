@@ -1,0 +1,8 @@
+auth_token: IIJvtUUsLo1M0T0C1kEs
+tunnels:
+    gpn-client:
+        proto:
+            http: 9000
+    gpn-server:
+        proto:
+            http: 3000
