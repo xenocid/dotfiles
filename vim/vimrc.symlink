@@ -157,6 +157,9 @@ NeoBundleLazy 't9md/vim-ruby-xmpfilter', {'autoload': { 'filetypes': ['ruby']}}
 NeoBundleLazy 'ecomba/vim-ruby-refactoring', {'autoload': { 'filetypes': ['ruby']}}
 NeoBundleLazy 'tpope/vim-dispatch', {'autoload': { 'filetypes': ['ruby']}}
 
+" Scala
+NeoBundleLazy 'derekwyatt/vim-scala', {'autoload': { 'filetypes': ['scala']}}
+
 " Colorschemes {{{
 
 " Dark themes
