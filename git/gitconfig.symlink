@@ -1,0 +1,2 @@
+alias.unstage reset HEAD
+alias.uncommit reset --soft HEAD^
