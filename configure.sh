@@ -166,6 +166,9 @@ if [ ! -d "$dest" ]; then
  add_to_path $dest
 fi
 
+# Copy passwords file from external location
+cp ~/Dropbox/Config/xenocid_pwd.sh ~/.xenocid_pwd.sh
+
 # Symlink folders
 symlink_folders
 
@@ -178,4 +181,6 @@ install_homebrew_packages
 # Run topic configure scripts
 run_topic_configure
 
+# Source this to establish private environment variables
+source ~/.xenocid_pwd.sh
 
