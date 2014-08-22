@@ -7,7 +7,7 @@ system %Q{wget --save-cookies /tmp/cookie.txt --keep-session-cookies --post-data
 https://rubytapas.dpdcart.com/subscriber/login?__dpd_cart=d08391e6-5fe2-4400-8b27-2dc17b413027}
  
  
-(25..1600).each do |i|
+(25..30000).each do |i|
   %x[wget -q -S --spider --load-cookies /tmp/cookie.txt https://rubytapas.dpdcart.com/subscriber/download?file_id=#{i} > spider.log 2>&1]
   head_log = File.read("spider.log")
   if head_log =~ /Content-Disposition.*filename="(.+)\.(.+)"/
