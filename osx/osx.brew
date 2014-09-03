@@ -2,3 +2,4 @@ qt
 imagemagick
 cmake
 wget
+awscli
