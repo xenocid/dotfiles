@@ -128,6 +128,7 @@ NeoBundle 'kchmck/vim-coffee-script',{'autoload' : {
                              \ 'CoffeeRun', 'CoffeeWatch'],
             \ 'filetypes' : ['coffee']
             \ }}
+NeoBundleLazy 'jaxbot/brolink.vim.git', {'autoload':{'filetypes':['javascript', 'css', 'html']}}
 
 
 NeoBundle 'pangloss/vim-javascript'
