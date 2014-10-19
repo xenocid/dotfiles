@@ -36,7 +36,7 @@ install_homebrew () {
 	if test ! $(which brew)
 	then
 		info "Installing Homebrew...\n"
-		ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	else
 		info "Homebrew is already installed. Moving on.\n"
 	fi
