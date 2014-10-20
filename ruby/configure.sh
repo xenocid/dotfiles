@@ -12,3 +12,5 @@ if ! rbenv versions | grep '2.1.0' 1>/dev/null
 then
 	rbenv install -s 2.1.3
 fi
+
+rbenv shell 2.1.3

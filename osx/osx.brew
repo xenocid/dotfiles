@@ -1,5 +1,5 @@
 qt
 imagemagick
-cmake
 wget
-awscli
+dockutil
+selecta
