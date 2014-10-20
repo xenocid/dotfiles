@@ -142,9 +142,6 @@ NeoBundleLazy 'alfredodeza/coveragepy.vim', {'autoload': {'filetypes': ['python'
 " HTML/CSS Bundles
 NeoBundle 'mattn/emmet-vim'
 
-" Java Bundles
-NeoBundle 'richox/vim-javacompleteex'
-
 " Markdown
 NeoBundleLazy 'joedicastro/vim-markdown'
 NeoBundleLazy 'joedicastro/vim-markdown-extra-preview'
