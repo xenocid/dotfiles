@@ -6,4 +6,4 @@ root: ~/Config/dotfiles
 windows:
   - editor: vim .
   - shell: 
-  - git: gitsh
+  - git: 
