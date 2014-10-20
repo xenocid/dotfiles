@@ -30,5 +30,6 @@ brew cask install google-hangouts
 brew cask install iterm2
 brew cask install karabiner
 brew cask install keyboard-maestro
+brew cask install moom
 
 brew cask alfred link
