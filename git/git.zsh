@@ -91,4 +91,4 @@ POST_1_7_2_GIT=$(git_compare_version "1.7.2")
 #clean up the namespace slightly by removing the checker function
 unset -f git_compare_version
 
-
+export HOMEBREW_GITHUB_API_TOKEN=962d3519a828108d8327d0706705b666cad5ecc1
