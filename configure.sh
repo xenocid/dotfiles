@@ -54,8 +54,12 @@ symlink_files () {
 
 			if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
 			then
-				user "File already exists: `basename $source`, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
-				read action
+				if [ "$1" != "" ]; then
+					action="$1"
+				else
+					user "File already exists: `basename $source`, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
+					read action
+				fi
 
 				case "$action" in
 					o )
@@ -173,7 +177,7 @@ cp ~/Dropbox/Config/xenocid_pwd.sh ~/.xenocid_pwd.sh
 symlink_folders
 
 # Symlink files
-symlink_files
+symlink_files $1
 
 # Install topic packages via Homebrew 
 install_homebrew_packages
