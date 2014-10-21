@@ -144,6 +144,18 @@ install_homebrew_packages_from_file () {
   done < $1
 }
 
+install_cask_packages_from_file () {
+  while read line;
+  do
+    if [ $(brew cask list | grep -E "^$line$") == $line ]
+    then
+      info "$line is already installed. Skipping.\n"
+    else 
+      brew cask install $line
+    fi
+  done < $1
+}
+
 install_homebrew_packages () {
   # Update brew definitions
   info "Updating Homebrew formulas. Stay calm...\n"
@@ -159,6 +171,22 @@ install_homebrew_packages () {
   # Linking apps
   info "Linking Homebrew apps...\n"
   brew linkapps
+}
+
+install_cask_packages () {
+  # Update brew definitions
+  info "Updating Homebrew Cask formulas. Stay calm...\n"
+  brew cask update
+  # Go through all topics and install brew packages for each one
+  for source in `find $DOTFILES_ROOT -maxdepth 2 -name \*.cask`
+  do
+    install_cask_packages_from_file $source
+  done
+  # Upgrade existing packages 
+  info "Upgrading installed packages...\n"
+  # Linking apps
+  info "Linking Homebrew apps...\n"
+  brew cask alfred link
 }
 
 # -----------------------------------------------------------------------
@@ -181,6 +209,9 @@ symlink_files $1
 
 # Install topic packages via Homebrew 
 install_homebrew_packages
+
+# Install topic packages via Homebrew Cask 
+install_cask_packages
 
 # Run topic configure scripts
 run_topic_configure
