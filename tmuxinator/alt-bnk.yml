@@ -1,0 +1,17 @@
+# ~/.tmuxinator/default.yml
+# you can make as many tabs as you wish...
+
+project_name: alt-bnk
+project_root: ~/Dev/iXenocid/alt-bnk
+pre_window: rbenv shell 2.1.3
+
+windows:
+  - editor: vim .
+  - shell: 
+  - git: gst
+  - server: bundle exec rails s
+  - services:
+      layout: main-horizontal
+      panes:
+          - mongod
+          - redis-server
