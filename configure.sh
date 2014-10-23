@@ -135,7 +135,7 @@ run_topic_configure () {
 install_homebrew_packages_from_file () {
   while read line;
   do
-    if [ $(brew list | grep -E "^$line$") == $line ]
+    if [[ $(brew list | grep -E "^$line$") == $line ]]
     then
       info "$line is already installed. Skipping.\n"
     else 
@@ -147,7 +147,7 @@ install_homebrew_packages_from_file () {
 install_cask_packages_from_file () {
   while read line;
   do
-    if [ $(brew cask list | grep -E "^$line$") == $line ]
+    if [[ $(brew cask list | grep -E "^$line$") == $line ]]
     then
       info "$line is already installed. Skipping.\n"
     else 

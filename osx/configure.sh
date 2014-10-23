@@ -4,10 +4,11 @@ cp -R -n ./osx/services/* ~/Library/Services/
 unlink  ~/Library/Application\ Support/PopClip
 ln -s ~/Dropbox/Apps/PopClip ~/Library/Application\ Support/PopClip
 
-# Install LaunchRocket (https://github.com/jimbojsb/launchrocketo)
-# Homebrew services control panel
-brew tap jimbojsb/launchrocket
-brew cask install launchrocket
-
 # Skip last login info output, makes shell to start a bit faster
 touch $HOME/.hushlogin
+
+# Link Dropbox/Inbox if it exists to ~/Downloads
+if [ -d ~/Dropbox/Inbox ]
+then
+    ln -s ~/Dropbox/Inbox ~/Downloads 
+fi

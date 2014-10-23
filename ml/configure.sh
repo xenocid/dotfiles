@@ -1,2 +1,1 @@
-brew cask install weka
 

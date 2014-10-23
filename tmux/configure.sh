@@ -1,2 +1,5 @@
 rbenv shell 2.1.3
-gem install tmuxinator
+if [[ $(gem list | grep tmuxinator) == "" ]]
+then
+    gem install tmuxinator
+fi
