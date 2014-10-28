@@ -143,8 +143,9 @@ NeoBundleLazy 'alfredodeza/coveragepy.vim', {'autoload': {'filetypes': ['python'
 NeoBundle 'mattn/emmet-vim'
 
 " Markdown
-NeoBundleLazy 'joedicastro/vim-markdown'
+NeoBundleLazy 'joedicastro/vim-markdown', {'autoload': { 'filetypes': ['markdown']}}  
 NeoBundleLazy 'joedicastro/vim-markdown-extra-preview'
+NeoBundleLazy 'itspriddle/vim-marked', {'autoload': { 'filetypes': ['markdown']}} 
 
 " Ruby
 NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': { 'filetypes': ['ruby']}}
