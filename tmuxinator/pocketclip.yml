@@ -1,0 +1,11 @@
+# ~/.tmuxinator/default.yml
+# you can make as many tabs as you wish...
+
+project_name: pocketclip
+project_root: ~/Dev/Xenocid/pocketclip
+pre_window: rbenv shell 2.1.3
+
+windows:
+  - editor: vim .
+  - shell: 
+  - git: gst
