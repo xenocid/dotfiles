@@ -4,7 +4,8 @@ unsetopt EQUALS
 DOTFILES_ROOT="`pwd`"
 
 # Load UI routines
-. ui.sh
+. lib-ui.sh
+. lib-misc.sh
 
 link_files () {
   if [ -f $2 ] || [ -d $2 ]
@@ -13,11 +14,6 @@ link_files () {
   fi
   ln -s $1 $2
   success "linked $1 to $2"
-}
-
-add_to_path () {
-  export PATH=$1:$PATH
-  success "added $1 to PATH"
 }
 
 symlink_files () {

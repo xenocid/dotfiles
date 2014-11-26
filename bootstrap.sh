@@ -8,14 +8,15 @@
 set -e
 
 # Load UI routines
-. ui.sh
+. lib-ui.sh
+. lib-misc.sh
 
 add_usr_local_bin_to_path () {
-	if [[ ":$PATH:" != *":/usr/local/bin:"* ]]; 
+    if [[ ":$PATH:" != *":/usr/local/bin:"* ]]; 
     then
 		info "Adding /usr/local/bin to PATH\n"
-		PATH="/usr/local/bin:$PATH"
-	fi
+        add_to_path "/usr/local/bin"
+    fi
 }
 
 install_homebrew () {
