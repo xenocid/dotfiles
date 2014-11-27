@@ -188,6 +188,9 @@ symlink_folders
 # Symlink files
 symlink_files $1
 
+git submodule init --quiet
+git submodule update
+
 # Install topic packages via Homebrew 
 install_homebrew_packages
 
