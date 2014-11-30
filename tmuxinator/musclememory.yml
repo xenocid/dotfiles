@@ -1,0 +1,9 @@
+# ~/.tmuxinator/dotfiles.yml
+
+name: musclememory
+root: ~/Dev/Xenocid/musclememory
+
+windows:
+  - editor: vim .
+  - shell: 
+  - git: 
