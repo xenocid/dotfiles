@@ -1,0 +1,10 @@
+# ~/.tmuxinator/gpn-server.yml
+
+name: devicesx
+root: ~/Dev/RN/racerx-openrtb
+pre_window: rbenv shell 1.9.3-p547
+
+windows:
+  - editor: vim .
+  - shell: 
+  - git: gst
