@@ -1,4 +1,10 @@
-" Auto installing NeoBundle
+
+" =======================================================
+" Bootstrapping
+" =======================================================
+" {{{
+
+" Setup NeoBundle, that should be the very first action when vim starts
 let iCanHazNeoBundle=1
 let neobundle_readme=expand($HOME.'/.vim/bundle/neobundle.vim/README.md')
 if !filereadable(neobundle_readme)
@@ -26,7 +32,18 @@ NeoBundle 'Shougo/vimproc', { 'build': {
       \   'unix': 'make -f make_unix.mak',
       \ } }
 
+" }}}
+
+" =======================================================
+" Bundles
+" =======================================================
+" {{{
+
+" -------------------------------------------------------
 " Unite & its plugins
+" -------------------------------------------------------
+" {{{
+
 NeoBundle 'Shougo/unite.vim'
 
 NeoBundleLazy 'Shougo/unite-outline', {'autoload':{'unite_sources':'outline'}}
@@ -49,7 +66,13 @@ NeoBundleLazy 'tacroe/unite-mark', {'autoload':{'unite_sources':'mark'}}
  NeoBundleLazy 'Shougo/junkfile.vim', {'autoload':{'commands':'JunkfileOpen',
 	     \ 'unite_sources':['junkfile','junkfile/new']}}
 
+" }}}
+
+" -------------------------------------------------------
 " General Bundles
+" -------------------------------------------------------
+" {{{
+
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'idanarye/vim-merginal'
 NeoBundle 'airblade/vim-gitgutter'
@@ -99,11 +122,16 @@ NeoBundleLazy 'vim-scripts/zoomwintab.vim', {'autoload' :
 " easily window resizing
 NeoBundle 'jimsei/winresizer'
 
+" -------------------------------------------------------
 " JSON
+" -------------------------------------------------------
+
 NeoBundleLazy 'vim-scripts/JSON.vim', {'autoload': {'filetypes': ['json']}}
 NeoBundleLazy 'tpope/vim-jdaddy', {'autoload': {'Filetypes': ['json']}}
 
+" -------------------------------------------------------
 " tmux
+" -------------------------------------------------------
 
 " Easily interacts with Tmux from Vim
 NeoBundle 'benmills/vimux'
@@ -111,7 +139,10 @@ NeoBundle 'benmills/vimux'
 NeoBundleLazy 'vimez/vim-tmux', { 'autoload' : { 'filetypes' : 'conf'}}
 
 
+" -------------------------------------------------------
 " JavaScript Bundles
+" -------------------------------------------------------
+
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 NeoBundleLazy 'othree/javascript-libraries-syntax.vim', {'autoload':{'filetypes':['javascript']}}
 NeoBundleLazy 'marijnh/tern_for_vim', {
@@ -134,20 +165,32 @@ NeoBundleLazy 'jaxbot/brolink.vim.git', {'autoload':{'filetypes':['javascript', 
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
+" -------------------------------------------------------
 " Python
+" -------------------------------------------------------
+
 NeoBundleLazy 'klen/python-mode', {'autoload': {'filetypes': ['python']}}
 NeoBundleLazy 'Yggdroot/indentLine', {'autoload': {'filetypes': ['python']}}
 NeoBundleLazy 'alfredodeza/coveragepy.vim', {'autoload': {'filetypes': ['python']}}
 
+" -------------------------------------------------------
 " HTML/CSS Bundles
+" -------------------------------------------------------
+
 NeoBundle 'mattn/emmet-vim'
 
+" -------------------------------------------------------
 " Markdown
-NeoBundleLazy 'joedicastro/vim-markdown', {'autoload': { 'filetypes': ['markdown']}}  
+" -------------------------------------------------------
+
+NeoBundleLazy 'joedicastro/vim-markdown'
 NeoBundleLazy 'joedicastro/vim-markdown-extra-preview'
 NeoBundleLazy 'itspriddle/vim-marked', {'autoload': { 'filetypes': ['markdown']}} 
 
+" -------------------------------------------------------
 " Ruby
+" -------------------------------------------------------
+
 NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': { 'filetypes': ['ruby']}}
 NeoBundleLazy 'tpope/vim-rails', {'autoload': { 'filetypes': ['ruby']}}
 NeoBundleLazy 'tpope/vim-rake', {'autoload': { 'filetypes': ['ruby']}}
@@ -157,10 +200,15 @@ NeoBundleLazy 't9md/vim-ruby-xmpfilter', {'autoload': { 'filetypes': ['ruby']}}
 NeoBundleLazy 'ecomba/vim-ruby-refactoring', {'autoload': { 'filetypes': ['ruby']}}
 NeoBundleLazy 'tpope/vim-dispatch', {'autoload': { 'filetypes': ['ruby']}}
 
+" -------------------------------------------------------
 " Scala
+" -------------------------------------------------------
+
 NeoBundleLazy 'derekwyatt/vim-scala', {'autoload': { 'filetypes': ['scala']}}
 
+" -------------------------------------------------------
 " Colorschemes {{{
+" -------------------------------------------------------
 
 " Dark themes
 " Improved terminal version of molokai, almost identical to the GUI one
@@ -195,6 +243,10 @@ endif
 NeoBundleCheck
 
 call neobundle#end()
+
+" ============================================================================
+" Configuration
+" ============================================================================
 
 filetype plugin indent on
 
@@ -1277,9 +1329,45 @@ map <Leader>z :ZoomWinTabToggle<CR>
 
 " =======================================================
 " Language-specific Settings
+" =======================================================
 
+" -------------------------------------------------------
 " JavaScript
+" -------------------------------------------------------
 au FileType javascript set shiftwidth=2
 au FileType javascript set tabstop=2
 au FileType javascript set softtabstop=2
 au BufRead,BufNewFile,BufWrite {*.json} set ft=javascript"
+
+" -------------------------------------------------------
+" Ruby
+" -------------------------------------------------------
+au FileType ruby set shiftwidth=2
+
+" -------------------------------------------------------
+" Python
+" -------------------------------------------------------
+
+" -------------------------------------------------------
+" Haskell
+" -------------------------------------------------------
+
+" -------------------------------------------------------
+" Go
+" -------------------------------------------------------
+
+" -------------------------------------------------------
+" C/C++
+" -------------------------------------------------------
+
+" -------------------------------------------------------
+" Java
+" -------------------------------------------------------
+
+" -------------------------------------------------------
+" Scala
+" -------------------------------------------------------
+
+" -------------------------------------------------------
+" Swift
+" -------------------------------------------------------
