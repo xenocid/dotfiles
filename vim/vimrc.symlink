@@ -8,16 +8,16 @@
 let iCanHazNeoBundle=1
 let neobundle_readme=expand($HOME.'/.vim/bundle/neobundle.vim/README.md')
 if !filereadable(neobundle_readme)
-	echo "Installing NeoBundle.."
-	echo ""
-	silent !mkdir -p $HOME/.vim/bundle
-	silent !git clone https://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim
-	let iCanHazNeoBundle=0
+  echo "Installing NeoBundle.."
+  echo ""
+  silent !mkdir -p $HOME/.vim/bundle
+  silent !git clone https://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim
+  let iCanHazNeoBundle=0
 endif
 
 if has('vim_starting')
-   set nocompatible               " Be iMproved
-   set runtimepath+=~/.vim/bundle/neobundle.vim/
+  set nocompatible               " Be iMproved
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
@@ -46,35 +46,33 @@ NeoBundle 'Shougo/vimproc', { 'build': {
 
 " UI framework to display information from various sources
 NeoBundle 'Shougo/unite.vim'
-
 " Unite source to provide an outline view for the buffer
 NeoBundleLazy 'Shougo/unite-outline', {'autoload':{'unite_sources':'outline'}}
-" ??? 
+" ???
 NeoBundleLazy 'tsukkee/unite-help', {'autoload':{'unite_sources':'help'}}
 " Unite plugin to change colorschemes
 NeoBundleLazy 'ujihisa/unite-colorscheme', {'autoload':{'unite_sources':
-            \ 'colorscheme'}}
+      \ 'colorscheme'}}
 " Unite.vim plugin to find/open files easily, using locate command
 NeoBundleLazy 'ujihisa/unite-locate', {'autoload':{'unite_sources':'locate'}}
-" ???                                                           
+" ???
 NeoBundleLazy 'thinca/vim-unite-history', { 'autoload' : { 'unite_sources' :
-            \ ['history/command', 'history/search']}}
-" 
+      \ ['history/command', 'history/search']}}
+" ???
 NeoBundleLazy 'osyo-manga/unite-filetype', { 'autoload' : {'unite_sources' :
-            \ 'filetype', }}
-" 
+      \ 'filetype', }}
+" ???
 NeoBundleLazy 'osyo-manga/unite-quickfix', {'autoload':{'unite_sources':
-            \ ['quickfix', 'location_list']}}
-" 
+      \ ['quickfix', 'location_list']}}
+" ???
 NeoBundleLazy 'osyo-manga/unite-fold', {'autoload':{'unite_sources':'fold'}}
-" 
+" ???
 NeoBundleLazy 'tacroe/unite-mark', {'autoload':{'unite_sources':'mark'}}
-
 " File explorer (needed where ranger is not available)
- NeoBundleLazy 'Shougo/vimfiler', {'autoload' : { 'commands' : ['VimFiler']}}
+NeoBundleLazy 'Shougo/vimfiler', {'autoload' : { 'commands' : ['VimFiler']}}
 " Junk files
- NeoBundleLazy 'Shougo/junkfile.vim', {'autoload':{'commands':'JunkfileOpen',
-	     \ 'unite_sources':['junkfile','junkfile/new']}}
+NeoBundleLazy 'Shougo/junkfile.vim', {'autoload':{'commands':'JunkfileOpen',
+      \ 'unite_sources':['junkfile','junkfile/new']}}
 
 " }}}
 
@@ -82,6 +80,7 @@ NeoBundleLazy 'tacroe/unite-mark', {'autoload':{'unite_sources':'mark'}}
 " General Bundles
 " -------------------------------------------------------
 " {{{
+
 " Lean & mean status/tabline for vim
 NeoBundle 'bling/vim-airline'
 " Syntax-checking plugin for multiple programming languages
@@ -100,8 +99,11 @@ NeoBundle 'honza/vim-snippets'
 NeoBundle 'vim-scripts/utl.vim'
 " Smart selection of content inside tags, quotes or parenthesis
 NeoBundle 'gorkunov/smartpairs.vim'
+" ???
 NeoBundle 'delimitMate.vim'
+" ???
 NeoBundle 'godlygeek/tabular'
+" ???
 NeoBundle 'rizzatti/dash.vim'
 " Smart and fast date changer
 NeoBundle 'tpope/vim-speeddating'
@@ -132,136 +134,206 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'joedicastro/vim-multiple-cursors'
 " Zooms a window
 NeoBundleLazy 'vim-scripts/zoomwintab.vim', {'autoload' :
-             \{'commands' : 'ZoomWinTabToggle'}}
+      \{'commands' : 'ZoomWinTabToggle'}}
 " easily window resizing
 NeoBundle 'jimsei/winresizer'
 NeoBundle 'Yggdroot/indentLine'
+
 " }}}
 
 " -------------------------------------------------------
 " Git
 " -------------------------------------------------------
 " {{{
+
+" ???
 NeoBundle 'tpope/vim-fugitive'
+" ???
 NeoBundle 'airblade/vim-gitgutter'
+" ???
 NeoBundle 'joedicastro/vim-github-dashboard'
+" ???
 NeoBundleLazy 'gregsexton/gitv', {'depends':['tpope/vim-fugitive'],
-            \ 'autoload':{'commands':'Gitv'}}
+      \ 'autoload':{'commands':'Gitv'}}
 " Provides UI for dealing with Git branches
 NeoBundle 'idanarye/vim-merginal', {'depends':['tpope/vim-fugitive']}
+
 " }}}
 
 " -------------------------------------------------------
 " JSON
 " -------------------------------------------------------
 " {{{
+
+" ???
 NeoBundleLazy 'vim-scripts/JSON.vim', {'autoload': {'filetypes': ['json']}}
+" ???
 NeoBundleLazy 'tpope/vim-jdaddy', {'autoload': {'Filetypes': ['json']}}
+
 " }}}
 
 " -------------------------------------------------------
 " tmux
 " -------------------------------------------------------
 " {{{
+
 " Easily interacts with Tmux from Vim
 NeoBundle 'benmills/vimux'
 " Tmux config file syntax
 NeoBundleLazy 'vimez/vim-tmux', { 'autoload' : { 'filetypes' : 'conf'}}
+
 " }}}
 
 " -------------------------------------------------------
 " JavaScript Bundles
 " -------------------------------------------------------
 " {{{
-NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
-NeoBundleLazy 'othree/javascript-libraries-syntax.vim', {'autoload':{'filetypes':['javascript']}}
-NeoBundleLazy 'marijnh/tern_for_vim', {
-            \ 'external_commands' : 'npm',
-            \ 'build' : 'npm install',
-            \ 'autoload' : {
-            \   'functions': ['tern#Complete', 'tern#Enable'],
-            \   'filetypes' : 'javascript'
-            \ }}
-NeoBundle 'kchmck/vim-coffee-script',{'autoload' : {
-            \ 'commands' : [
-                             \ 'CoffeeCompile', 'CoffeeLint', 'CoffeeMake',
-                             \ 'CoffeeRun', 'CoffeeWatch'],
-            \ 'filetypes' : ['coffee']
-            \ }}
-NeoBundleLazy 'jaxbot/brolink.vim.git', {'autoload':{'filetypes':['javascript', 'css', 'html']}}
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-" }}}
 
+" ???
+NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+" ???
+NeoBundleLazy 'othree/javascript-libraries-syntax.vim', {'autoload':{'filetypes':['javascript']}}
+" ???
+NeoBundleLazy 'marijnh/tern_for_vim', {
+      \ 'external_commands' : 'npm',
+      \ 'build' : 'npm install',
+      \ 'autoload' : {
+      \   'functions': ['tern#Complete', 'tern#Enable'],
+      \   'filetypes' : 'javascript'
+      \ }}
+" ???
+NeoBundleLazy 'jaxbot/brolink.vim.git', {'autoload':{'filetypes':['javascript', 'css', 'html']}}
+" ???
+NeoBundle 'pangloss/vim-javascript'
+" ???
+NeoBundle 'nathanaelkane/vim-indent-guides'
+
+" }}}
 
 " -------------------------------------------------------
 " CoffeeScript Bundles
 " -------------------------------------------------------
 " {{{
-NeoBundle 'kchmck/vim-coffee-script'
+
+" ???
+NeoBundle 'kchmck/vim-coffee-script',{'autoload' : {
+      \ 'commands' : [
+      \ 'CoffeeCompile', 'CoffeeLint', 'CoffeeMake',
+      \ 'CoffeeRun', 'CoffeeWatch'],
+      \ 'filetypes' : ['coffee']
+      \ }}
+
 " }}}
 
 " -------------------------------------------------------
 " Python
 " -------------------------------------------------------
+" {{{
+
+" ???
 NeoBundleLazy 'klen/python-mode', {'autoload': {'filetypes': ['python']}}
+" ???
 NeoBundleLazy 'alfredodeza/coveragepy.vim', {'autoload': {'filetypes': ['python']}}
+
+" }}}
 
 " -------------------------------------------------------
 " HTML/CSS Bundles
 " -------------------------------------------------------
+" {{{
+
+" ???
 NeoBundle 'mattn/emmet-vim'
+
+" }}}
 
 " -------------------------------------------------------
 " Markdown
 " -------------------------------------------------------
+" {{{
+
+" ???
 NeoBundleLazy 'joedicastro/vim-markdown'
+" ???
 NeoBundleLazy 'joedicastro/vim-markdown-extra-preview'
-NeoBundleLazy 'itspriddle/vim-marked', {'autoload': { 'filetypes': ['markdown']}} 
+" ???
+NeoBundleLazy 'itspriddle/vim-marked', {'autoload': { 'filetypes': ['markdown']}}
+
+" }}}
 
 " -------------------------------------------------------
 " Ruby
 " -------------------------------------------------------
+" {{{
+
+" ???
 NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': { 'filetypes': ['ruby']}}
+" ???
 NeoBundleLazy 'tpope/vim-rails', {'autoload': { 'filetypes': ['ruby']}}
+" ???
 NeoBundleLazy 'tpope/vim-rake', {'autoload': { 'filetypes': ['ruby']}}
+" ???
 NeoBundleLazy 'tpope/vim-cucumber', {'autoload': { 'filetypes': ['ruby']}}
+" ???
 NeoBundleLazy 'thoughtbot/vim-rspec', {'autoload': { 'filetypes': ['ruby']}}
+" ???
 NeoBundleLazy 't9md/vim-ruby-xmpfilter', {'autoload': { 'filetypes': ['ruby']}}
+" ???
 NeoBundleLazy 'ecomba/vim-ruby-refactoring', {'autoload': { 'filetypes': ['ruby']}}
+" ???
 NeoBundleLazy 'tpope/vim-dispatch', {'autoload': { 'filetypes': ['ruby']}}
+
+" }}}
 
 " -------------------------------------------------------
 " Scala
 " -------------------------------------------------------
+" {{{
+
+" ???
 NeoBundleLazy 'derekwyatt/vim-scala', {'autoload': { 'filetypes': ['scala']}}
+
+" }}}
 
 " -------------------------------------------------------
 " Colorschemes
 " -------------------------------------------------------
-" Dark themes
-" Improved terminal version of molokai, almost identical to the GUI one
-NeoBundle 'joedicastro/vim-molokai256'
-NeoBundle 'tomasr/molokai'
-NeoBundleLazy 'sjl/badwolf', { 'autoload' :
-			\ { 'unite_sources' : 'colorscheme', }}
-NeoBundleLazy 'nielsmadan/harlequin', { 'autoload' :
-			\ { 'unite_sources' : 'colorscheme', }}
-" Light themes
-NeoBundleLazy 'vim-scripts/summerfruit256.vim', { 'autoload' :
-			\ { 'unite_sources' : 'colorscheme', }}
-NeoBundleLazy 'joedicastro/vim-github256', { 'autoload' :
-			\ { 'unite_sources' : 'colorscheme', }}
+" {{{
+
 " Make terminal themes from GUI themes
 NeoBundleLazy 'godlygeek/csapprox', { 'autoload' :
-			\ { 'commands' : ['CSApprox', 'CSApproxSnapshot']}}
+      \ { 'commands' : ['CSApprox', 'CSApproxSnapshot']}}
+
+" Dark themes:
+
+" Improved terminal version of molokai, almost identical to the GUI one
+NeoBundle 'joedicastro/vim-molokai256'
+" ???
+NeoBundle 'tomasr/molokai'
+" ???
+NeoBundleLazy 'sjl/badwolf', { 'autoload' :
+      \ { 'unite_sources' : 'colorscheme', }}
+" ???
+NeoBundleLazy 'nielsmadan/harlequin', { 'autoload' :
+      \ { 'unite_sources' : 'colorscheme', }}
+
+" Light themes:
+
+" ???
+NeoBundleLazy 'vim-scripts/summerfruit256.vim', { 'autoload' :
+      \ { 'unite_sources' : 'colorscheme', }}
+" ???
+NeoBundleLazy 'joedicastro/vim-github256', { 'autoload' :
+      \ { 'unite_sources' : 'colorscheme', }}
+
+" }}}
 
 
 " First-time plugins installation
 if iCanHazNeoBundle == 0
-	echo "Installing Bundles, please ignore key map error messages"
-        echo "
-        :NeoBundleInstall
+  echo "Installing Bundles, please ignore key map error messages"
+  echo "
+  :NeoBundleInstall
 endif
 
 " Check if all of the plugins are already installed, in other case ask if we
@@ -276,83 +348,127 @@ call neobundle#end()
 " ============================================================================
 " {{{
 
-filetype plugin indent on
-
-" When vimrc is edited, reload it
+" -----------------------------------------------------------------------------
+" Auto reloading of vimrc on save
+" -----------------------------------------------------------------------------
+" {{{
 autocmd! bufwritepost vimrc source ~/.vimrc
 autocmd! bufwritepost vimrc.symlink source ~/.vimrc
+" }}}
 
-set t_Co=256
-syntax on
-
+" -----------------------------------------------------------------------------
+" Leader key
+" -----------------------------------------------------------------------------
+" {{{
 let mapleader=","
 let g:mapleader =","
 let maplocalleader= ' '
+" }}}
+
+filetype plugin indent on
 
 scriptencoding utf-8
-set encoding=utf-8              " setup the encoding to UTF-8"
 set nostartofline               " keep cursor in same column for long-range motion cmds
-set scrolloff=3     		" Number of screen lines to show around the cursor
-set linebreak       		" For lines longer than the window, wrap intelligently. This doesn't insert hard line breaks.
-set showbreak=↪\ \
-set sidescrolloff=2
-set cmdheight=2
-set laststatus=2    		" Always display the status line
-set number          		" show line numbers
-set textwidth=80
-set autoindent
-set nowrap
-set whichwrap+=h,l,<,>,[,]
+set autoread                    " update a open file edited outside of Vim
+
+" -----------------------------------------------------------------------------
+" UI Settings
+" -----------------------------------------------------------------------------
+" {{{
+set t_Co=256                    " Number of colors to use in the terminal
+set encoding=utf-8              " setup the encoding to UTF-8"
+set textwidth=80                " Set default text width
+set colorcolumn=81              " Highlight a column to show default text width
 set visualbell                  " turn on the visual bell
 set cursorline                  " highlight the line under the cursor
 set fillchars+=vert:│           " better looking for windows separator
 set ttyfast                     " better screen redraw
-set title                       " set the terminal title to the current file"
-set showcmd                     " shows partial commands"
-set hidden                      " hide the inactive buffers"
-set ruler                       " sets a permanent rule"
-set lazyredraw                  " only redraws if it is needed"
-set autoread                    " update a open file edited outside of Vim"
-set ttimeoutlen=0               " toggle between modes almost instantly"
+set title                       " set the terminal title to the current file
+set showcmd                     " shows partial commands
+set hidden                      " hide the inactive buffers
+set number          		    " show line numbers
+set ruler                       " sets a permanent rule
+set lazyredraw                  " only redraws if it is needed
+set ttimeoutlen=0               " toggle between modes almost instantly
 set backspace=indent,eol,start  " defines the backspace key behavior
-set virtualedit=all             " to edit where there is no actual character"
+set virtualedit=all             " to edit where there is no actual character
 set splitbelow                  " open new splits on the right and below
 set splitright                  " feels more natural than vim's defaults
-
+set cmdheight=2                 " Number of screen lines to use for the command-line
+set laststatus=2    		    " Always display the status line
+set scrolloff=3     		    " Number of screen lines to show around the cursor
+set sidescrolloff=2             " Minimal number of columns to show around cursor
 set go-=T                       " hide the toolbar for gvim
 set go-=m                       " hide the menu for gvim
 " The next two lines are quite tricky, but in Gvim, if you don't do this, if you
 " only hide all the scrollbars, the vertical scrollbar is showed anyway
 set go+=rRlLbh                  " show all the scrollbars
 set go-=rRlLbh                  " hide all the scrollbars
+" }}}
 
-" Searching {{{
-
-set incsearch             	" Highlight pattern matches as you type
+" -----------------------------------------------------------------------------
+" Searching
+" -----------------------------------------------------------------------------
+" {{{
+set incsearch             	    " Highlight pattern matches as you type
 set ignorecase                  " ignore case when using a search pattern
 set smartcase                   " override 'ignorecase' when pattern has upper case character
 set showmatch                   " show pairs match
 set hlsearch                    " highlight search results
 
-" }}}}
+" Toggle the search results highlighting
+map <silent><Leader>eq :set invhlsearch<CR>
+" }}}
 
-" History and permanent undo levels {{{
-
+" -----------------------------------------------------------------------------
+" History and permanent undo levels
+" -----------------------------------------------------------------------------
+" {{{
 set history=1000
 set undofile
 set undoreload=1000
+" }}}
 
-" }}}}
+" -----------------------------------------------------------------------------
+" Backups
+" -----------------------------------------------------------------------------
+" {{{
+set backup
+set noswapfile
+set backupdir=$HOME/.tmp/backup/
+set undodir=$HOME/.tmp/undo/
+set directory=$HOME/.tmp/swap/
+set viminfo+=n$HOME/.tmp/viminfo
 
-" Fixing common typos
+" Make a dir if no exists
+function! MakeDirIfNoExists(path)
+  if !isdirectory(expand(a:path))
+    call mkdir(expand(a:path), "p")
+  endif
+endfunction
+
+" make this dirs if no exists previously
+silent! call MakeDirIfNoExists(&undodir)
+silent! call MakeDirIfNoExists(&backupdir)
+silent! call MakeDirIfNoExists(&directory)
+" }}}
+
+" -----------------------------------------------------------------------------
+" Fixes for common typos
+" -----------------------------------------------------------------------------
+" {{{
 command! W w
 command! Q q
 command! Wq wq
 command! WQ wq
 command! Wa wa
 command! WA wa
+" }}}
 
-" You do not use arrow keys in vim
+" -----------------------------------------------------------------------------
+" Disable arrow keys for movement
+" -----------------------------------------------------------------------------
+" {{{
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
@@ -361,37 +477,12 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
-
-
-" }}}}
-
-" -----------------------------------------------------------------------------
-" Backups
-" -----------------------------------------------------------------------------
-set backup
-set noswapfile
-set backupdir=$HOME/.tmp/backup/
-set undodir=$HOME/.tmp/undo/
-set directory=$HOME/.tmp/swap/
-set viminfo+=n$HOME/.tmp/viminfo
-
-" Make a dir if no exists {{{
-function! MakeDirIfNoExists(path)
-	if !isdirectory(expand(a:path))
-		call mkdir(expand(a:path), "p")
-	endif
-endfunction
-
-" make this dirs if no exists previously
-silent! call MakeDirIfNoExists(&undodir)
-silent! call MakeDirIfNoExists(&backupdir)
-silent! call MakeDirIfNoExists(&directory)
+" }}}
 
 " -----------------------------------------------------------------------------
 " Wildmenu
 " -----------------------------------------------------------------------------
 " {{{
-
 set wildmenu                        " Command line autocompletion
 set wildmode=list:longest,full      " Shows all the options
 
@@ -401,212 +492,162 @@ set wildignore+=*.luac                           " Lua byte code
 set wildignore+=*.jar                            " java archives
 set wildignore+=*.pyc                            " Python byte code
 set wildignore+=*.stats                          " Pylint stats
+" }}}
 
+
+" -----------------------------------------------------------------------------
+" Syntax Highlighting
+" -----------------------------------------------------------------------------
+" {{{
+syntax on
 " }}}
 
 " -----------------------------------------------------------------------------
 " Tabs, space and wrapping
 " -----------------------------------------------------------------------------
 " {{{
-
 set expandtab                  " spaces instead of tabs
-set tabstop=4                  " a tab = four spaces
-set shiftwidth=4               " number of spaces for auto-indent
-set softtabstop=4              " a soft-tab of four spaces
+set tabstop=2                  " a tab = four spaces
+set shiftwidth=2               " number of spaces for auto-indent
+set softtabstop=2              " a soft-tab of four spaces
 set autoindent                 " set on the auto-indent
 
-" set formatoptions=qrn1ct
-set textwidth=80
-set colorcolumn=81
-
 function! ToggleWrap()
-    let s:nowrap_cc_bg = [22, '#005f00']
-    redir => s:curr_cc_hi
-    silent hi ColorColumn
-    redir END
-    let s:curr_cc_ctermbg = matchstr(s:curr_cc_hi, 'ctermbg=\zs.\{-}\s\ze\1')
-    let s:curr_cc_guibg = matchstr(s:curr_cc_hi, 'guibg=\zs.\{-}\_$\ze\1')
-    if s:curr_cc_ctermbg != s:nowrap_cc_bg[0]
-        let g:curr_cc_ctermbg = s:curr_cc_ctermbg
-    endif
-    if s:curr_cc_guibg != s:nowrap_cc_bg[1]
-        let g:curr_cc_guibg = s:curr_cc_guibg
-    endif
-    if &textwidth == 80
-        set textwidth=0
-        exec 'hi ColorColumn ctermbg='.s:nowrap_cc_bg[0].
-                    \' guibg='.s:nowrap_cc_bg[1]
-    elseif &textwidth == 0
-        set textwidth=80
-        exec 'hi ColorColumn ctermbg='.g:curr_cc_ctermbg.
-                    \' guibg='.g:curr_cc_guibg
-    endif
+  let s:nowrap_cc_bg = [22, '#005f00']
+  redir => s:curr_cc_hi
+  silent hi ColorColumn
+  redir END
+  let s:curr_cc_ctermbg = matchstr(s:curr_cc_hi, 'ctermbg=\zs.\{-}\s\ze\1')
+  let s:curr_cc_guibg = matchstr(s:curr_cc_hi, 'guibg=\zs.\{-}\_$\ze\1')
+  if s:curr_cc_ctermbg != s:nowrap_cc_bg[0]
+    let g:curr_cc_ctermbg = s:curr_cc_ctermbg
+  endif
+  if s:curr_cc_guibg != s:nowrap_cc_bg[1]
+    let g:curr_cc_guibg = s:curr_cc_guibg
+  endif
+  if &textwidth == 80
+    set textwidth=0
+    exec 'hi ColorColumn ctermbg='.s:nowrap_cc_bg[0].
+          \' guibg='.s:nowrap_cc_bg[1]
+  elseif &textwidth == 0
+    set textwidth=80
+    exec 'hi ColorColumn ctermbg='.g:curr_cc_ctermbg.
+          \' guibg='.g:curr_cc_guibg
+  endif
 endfunction
 
 nmap <silent><Leader>ew :call ToggleWrap()<CR>
 
+set nowrap
+set whichwrap+=h,l,<,>,[,]
+" For lines longer than the window, wrap intelligently.
+" This doesn't insert hard line breaks.
+set linebreak
+set showbreak=↪\ \              " Character to use to indicate wrapped string
 " }}}
 
 " -----------------------------------------------------------------------------
-" Tabs, space and wrapping
+" Theme
 " -----------------------------------------------------------------------------
 " {{{
-
-syntax enable                  " enable the syntax highlight
 set background=dark            " set a dark background
-set t_Co=256                   " 256 colors for the terminal
-if has('gui_running')
-    colorscheme molokai
-else
-    colorscheme molokai256
-endif
 
+if has('gui_running')
+  colorscheme molokai
+else
+  colorscheme molokai256
+endif
 " }}}
 
 " -----------------------------------------------------------------------------
-" New windows {{{
+" New windows
 " -----------------------------------------------------------------------------
-
+" {{{
 nnoremap <Leader>v <C-w>v
 nnoremap <Leader>h <C-w>s
-
 " }}}
 
 " -----------------------------------------------------------------------------
-" Fast window moves {{{
+" Fast window moves
 " -----------------------------------------------------------------------------
-
+" {{{
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
 " }}}
 
-
 " -----------------------------------------------------------------------------
-" Fast window & buffer close and kill {{{
+" Fast window & buffer close and kill
 " -----------------------------------------------------------------------------
-
+" {{{
 nnoremap <Leader>k <C-w>c
 nnoremap <silent><Leader>K :bd<CR>
-
 " }}}
 
 " Resize the divisions if the Vim window size changes {{{
 au VimResized * exe "normal! \<c-w>="
+" }}}
 
 " -----------------------------------------------------------------------------
-" Folding {{{
+" Folding
 " -----------------------------------------------------------------------------
-
+" {{{
 set foldmethod=marker
-
 " Toggle folding
-
 nnoremap \ za
 vnoremap \ za
-
 " }}}}
 
 " -----------------------------------------------------------------------------
-" Cut/Paste {{{
+" Cut/Copy/Paste
 " -----------------------------------------------------------------------------
-
+" {{{
 " to/from the clipboard
 map <Leader>y "*y
 map <Leader>p "*p
-
 " toggle paste mode
 map <Leader>P :set invpaste<CR>
-
-" }}}}
+" }}}
 
 " -----------------------------------------------------------------------------
-"  Quick saving {{{
+"  Quick saving
 " -----------------------------------------------------------------------------
-
+" {{{
 nmap <silent> <Leader>w :update<CR>
-
 " }}}
 
 " -----------------------------------------------------------------------------
-" Delete trailing whitespaces {{{
+" Delete trailing whitespaces
 " -----------------------------------------------------------------------------
-
+" {{{
 nmap <silent><Leader>et :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-
 " }}}
 
 " -----------------------------------------------------------------------------
-" Toggle the Quickfix window {{{
+" QuickFix window
 " -----------------------------------------------------------------------------
-
+" {{{
 function! s:QuickfixToggle()
-    for i in range(1, winnr('$'))
-        let bnum = winbufnr(i)
-        if getbufvar(bnum, '&buftype') == 'quickfix'
-            cclose
-            lclose
-            return
-        endif
-    endfor
-    copen
+  for i in range(1, winnr('$'))
+    let bnum = winbufnr(i)
+    if getbufvar(bnum, '&buftype') == 'quickfix'
+      cclose
+      lclose
+      return
+    endif
+  endfor
+  copen
 endfunction
 command! ToggleQuickfix call <SID>QuickfixToggle()
 
 nnoremap <silent> <Leader>q :ToggleQuickfix<CR>
-
 " }}}
 
 " -----------------------------------------------------------------------------
-" Text statistics {{{
+" Move between Vim and Tmux windows 
 " -----------------------------------------------------------------------------
-
-" get the total of lines, words, chars and bytes (and for the current position)
-map <Leader>es g<C-G>
-
-" get the word frequency in the text
-function! WordFrequency() range
-  let all = split(join(getline(a:firstline, a:lastline)), '\A\+')
-  let frequencies = {}
-  for word in all
-    let frequencies[word] = get(frequencies, word, 0) + 1
-  endfor
-  let lst = []
-  for [key,value] in items(frequencies)
-    call add(lst, value."\t".key."\n")
-  endfor
-  call sort(lst)
-  echo join(lst)
-endfunction
-command! -range=% WordFrequency <line1>,<line2>call WordFrequency()
-map <Leader>ef :Unite output:WordFrequency<CR>
-
-" }}}
-
-" -----------------------------------------------------------------------------
-" Count lines of code {{{
-" -----------------------------------------------------------------------------
-
-function! LinesOfCode()
-    echo system('cloc --quiet '.bufname("%"))
-endfunction
-
-"}}}
-
-" -----------------------------------------------------------------------------
-" Toggle the search results highlighting {{{
-" -----------------------------------------------------------------------------
-
-map <silent><Leader>eq :set invhlsearch<CR>
-
-" }}}
- 
-" -----------------------------------------------------------------------------
-" Move between Vim and Tmux windows {{{
-" -----------------------------------------------------------------------------
-
+" {{{
 if exists('$TMUX')
   function! TmuxOrSplitSwitch(wincmd, tmuxdir)
     let previous_winnr = winnr()
@@ -631,22 +672,64 @@ else
   map <C-k> <C-w>k
   map <C-l> <C-w>l
 endif
-
 " }}}
- 
-" -----------------------------------------------------------------------------
-" Quick exiting without save {{{
-" -----------------------------------------------------------------------------
 
+" -----------------------------------------------------------------------------
+" Quick exiting without save
+" -----------------------------------------------------------------------------
+" {{{
 nnoremap <Leader>`` :qa!<CR>
+" }}}
+
+" -----------------------------------------------------------------------------
+" Make the Y behavior similar to D & C
+" -----------------------------------------------------------------------------
+" {{{
+nnoremap Y y$
+" }}}
+
+" }}}
+
+" ============================================================================
+" Scripts, Macros and Utility Functions
+" ============================================================================
+" {{{
+
+" -----------------------------------------------------------------------------
+" Text statistics
+" -----------------------------------------------------------------------------
+" {{{
+
+" get the total of lines, words, chars and bytes (and for the current position)
+map <Leader>es g<C-G>
+
+" get the word frequency in the text
+function! WordFrequency() range
+  let all = split(join(getline(a:firstline, a:lastline)), '\A\+')
+  let frequencies = {}
+  for word in all
+    let frequencies[word] = get(frequencies, word, 0) + 1
+  endfor
+  let lst = []
+  for [key,value] in items(frequencies)
+    call add(lst, value."\t".key."\n")
+  endfor
+  call sort(lst)
+  echo join(lst)
+endfunction
+command! -range=% WordFrequency <line1>,<line2>call WordFrequency()
+map <Leader>ef :Unite output:WordFrequency<CR>
 
 " }}}
 
 " -----------------------------------------------------------------------------
-" Make the Y behavior similar to D & C {{{
+" Count lines of code
 " -----------------------------------------------------------------------------
-
-nnoremap Y y$
+" {{{
+function! LinesOfCode()
+  echo system('cloc --quiet '.bufname("%"))
+endfunction
+" }}}
 
 " }}}
 
@@ -694,9 +777,9 @@ nnoremap <silent><Leader>b :Unite -silent buffer<CR>
 nnoremap <silent><Leader>B :Unite -silent tab<CR>
 " buffer search
 nnoremap <silent><Leader>f :Unite -silent -no-split -start-insert -auto-preview
-            \ line<CR>
+      \ line<CR>
 nnoremap <silent>[menu]8 :UniteWithCursorWord -silent -no-split -auto-preview
-            \ line<CR>
+      \ line<CR>
 " yankring
 nnoremap <silent><Leader>i :Unite -silent history/yank<CR>
 " grep
@@ -705,12 +788,12 @@ nnoremap <silent><Leader>a :Unite -silent -no-quit grep<CR>
 nnoremap <silent> g<C-h> :UniteWithCursorWord -silent help<CR>
 " tasks
 nnoremap <silent><Leader>; :Unite -silent -toggle
-            \ grep:%::FIXME\|TODO\|NOTE\|XXX\|COMBAK\|@todo<CR>
+      \ grep:%::FIXME\|TODO\|NOTE\|XXX\|COMBAK\|@todo<CR>
 " outlines (also ctags)
 nnoremap <silent><Leader>t :Unite -silent -vertical -winwidth=40
-            \ -direction=topleft -toggle outline<CR>
+      \ -direction=topleft -toggle outline<CR>
 " junk files
-  nnoremap <silent><Leader>d :Unite -silent junkfile/new junkfile<CR>
+nnoremap <silent><Leader>d :Unite -silent junkfile/new junkfile<CR>
 
 " menus {{{
 let g:unite_source_menu_menus = {}
@@ -725,538 +808,538 @@ nnoremap <silent>[menu]u :Unite -silent -winheight=20 menu<CR>
 
 " files and dirs menu {{{
 let g:unite_source_menu_menus.files = {
-    \ 'description' : '          files & dirs
-        \                                          ⌘ [space]o',
-    \}
+      \ 'description' : '          files & dirs
+      \                                          ⌘ [space]o',
+      \}
 let g:unite_source_menu_menus.files.command_candidates = [
-    \['▷ open file                                                  ⌘ ,o',
-        \'Unite -start-insert file'],
-    \['▷ open more recently used files                              ⌘ ,m',
-        \'Unite file_mru'],
-    \['▷ open file with recursive search                            ⌘ ,O',
-        \'Unite -start-insert file_rec/async'],
-    \['▷ edit new file',
-        \'Unite file/new'],
-    \['▷ search directory',
-        \'Unite directory'],
-    \['▷ search recently used directories',
-        \'Unite directory_mru'],
-    \['▷ search directory with recursive search',
-        \'Unite directory_rec/async'],
-    \['▷ make new directory',
-        \'Unite directory/new'],
-    \['▷ change working directory',
-        \'Unite -default-action=lcd directory'],
-    \['▷ know current working directory',
-        \'Unite output:pwd'],
-    \['▷ junk files                                                 ⌘ ,d',
-        \'Unite junkfile/new junkfile'],
-    \['▷ save as root                                               ⌘ :w!!',
-        \'exe "write !sudo tee % >/dev/null"'],
-    \['▷ quick save                                                 ⌘ ,w',
-        \'normal ,w'],
-    \['▷ open ranger                                                ⌘ ,x',
-        \'call RangerChooser()'],
-    \['▷ open vimfiler                                              ⌘ ,X',
-        \'VimFiler'],
-    \]
+      \['▷ open file                                                  ⌘ ,o',
+      \'Unite -start-insert file'],
+      \['▷ open more recently used files                              ⌘ ,m',
+      \'Unite file_mru'],
+      \['▷ open file with recursive search                            ⌘ ,O',
+      \'Unite -start-insert file_rec/async'],
+      \['▷ edit new file',
+      \'Unite file/new'],
+      \['▷ search directory',
+      \'Unite directory'],
+      \['▷ search recently used directories',
+      \'Unite directory_mru'],
+      \['▷ search directory with recursive search',
+      \'Unite directory_rec/async'],
+      \['▷ make new directory',
+      \'Unite directory/new'],
+      \['▷ change working directory',
+      \'Unite -default-action=lcd directory'],
+      \['▷ know current working directory',
+      \'Unite output:pwd'],
+      \['▷ junk files                                                 ⌘ ,d',
+      \'Unite junkfile/new junkfile'],
+      \['▷ save as root                                               ⌘ :w!!',
+      \'exe "write !sudo tee % >/dev/null"'],
+      \['▷ quick save                                                 ⌘ ,w',
+      \'normal ,w'],
+      \['▷ open ranger                                                ⌘ ,x',
+      \'call RangerChooser()'],
+      \['▷ open vimfiler                                              ⌘ ,X',
+      \'VimFiler'],
+      \]
 nnoremap <silent>[menu]o :Unite -silent -winheight=17 -start-insert
-            \ menu:files<CR>
+      \ menu:files<CR>
 " }}}
 
 " file searching menu {{{
 let g:unite_source_menu_menus.grep = {
-    \ 'description' : '           search files
-        \                                          ⌘ [space]a',
-    \}
+      \ 'description' : '           search files
+      \                                          ⌘ [space]a',
+      \}
 let g:unite_source_menu_menus.grep.command_candidates = [
-    \['▷ grep (ag → ack → grep)                                     ⌘ ,a',
-        \'Unite -no-quit grep'],
-    \['▷ find',
-        \'Unite find'],
-    \['▷ locate',
-        \'Unite -start-insert locate'],
-    \['▷ vimgrep (very slow)',
-        \'Unite vimgrep'],
-    \]
+      \['▷ grep (ag → ack → grep)                                     ⌘ ,a',
+      \'Unite -no-quit grep'],
+      \['▷ find',
+      \'Unite find'],
+      \['▷ locate',
+      \'Unite -start-insert locate'],
+      \['▷ vimgrep (very slow)',
+      \'Unite vimgrep'],
+      \]
 nnoremap <silent>[menu]a :Unite -silent menu:grep<CR>
 " }}}
 
 " buffers, tabs & windows menu {{{
 let g:unite_source_menu_menus.navigation = {
-    \ 'description' : '     navigate by buffers, tabs & windows
-        \                   ⌘ [space]b',
-    \}
+      \ 'description' : '     navigate by buffers, tabs & windows
+      \                   ⌘ [space]b',
+      \}
 let g:unite_source_menu_menus.navigation.command_candidates = [
-    \['▷ buffers                                                    ⌘ ,b',
-        \'Unite buffer'],
-    \['▷ tabs                                                       ⌘ ,B',
-        \'Unite tab'],
-    \['▷ windows',
-        \'Unite window'],
-    \['▷ location list',
-        \'Unite location_list'],
-    \['▷ quickfix',
-        \'Unite quickfix'],
-    \['▷ resize windows                                             ⌘ C-C C-W',
-        \'WinResizerStartResize'],
-    \['▷ new vertical window                                        ⌘ ,v',
-        \'vsplit'],
-    \['▷ new horizontal window                                      ⌘ ,h',
-        \'split'],
-    \['▷ close current window                                       ⌘ ,k',
-        \'close'],
-    \['▷ toggle quickfix window                                     ⌘ ,q',
-        \'normal ,q'],
-    \['▷ zoom                                                       ⌘ ,z',
-        \'ZoomWinTabToggle'],
-    \['▷ delete buffer                                              ⌘ ,K',
-        \'bd'],
-    \]
+      \['▷ buffers                                                    ⌘ ,b',
+      \'Unite buffer'],
+      \['▷ tabs                                                       ⌘ ,B',
+      \'Unite tab'],
+      \['▷ windows',
+      \'Unite window'],
+      \['▷ location list',
+      \'Unite location_list'],
+      \['▷ quickfix',
+      \'Unite quickfix'],
+      \['▷ resize windows                                             ⌘ C-C C-W',
+      \'WinResizerStartResize'],
+      \['▷ new vertical window                                        ⌘ ,v',
+      \'vsplit'],
+      \['▷ new horizontal window                                      ⌘ ,h',
+      \'split'],
+      \['▷ close current window                                       ⌘ ,k',
+      \'close'],
+      \['▷ toggle quickfix window                                     ⌘ ,q',
+      \'normal ,q'],
+      \['▷ zoom                                                       ⌘ ,z',
+      \'ZoomWinTabToggle'],
+      \['▷ delete buffer                                              ⌘ ,K',
+      \'bd'],
+      \]
 nnoremap <silent>[menu]b :Unite -silent menu:navigation<CR>
 " }}}
 
 " buffer internal searching menu {{{
 let g:unite_source_menu_menus.searching = {
-    \ 'description' : '      searchs inside the current buffer
-        \                     ⌘ [space]f',
-    \}
+      \ 'description' : '      searchs inside the current buffer
+      \                     ⌘ [space]f',
+      \}
 let g:unite_source_menu_menus.searching.command_candidates = [
-    \['▷ search line                                                ⌘ ,f',
-        \'Unite -auto-preview -start-insert line'],
-    \['▷ search word under the cursor                               ⌘ [space]8',
-        \'UniteWithCursorWord -no-split -auto-preview line'],
-    \['▷ search outlines & tags (ctags)                             ⌘ ,t',
-        \'Unite -vertical -winwidth=40 -direction=topleft -toggle outline'],
-    \['▷ search marks',
-        \'Unite -auto-preview mark'],
-    \['▷ search folds',
-        \'Unite -vertical -winwidth=30 -auto-highlight fold'],
-    \['▷ search changes',
-        \'Unite change'],
-    \['▷ search jumps',
-        \'Unite jump'],
-    \['▷ search undos',
-        \'Unite undo'],
-    \['▷ search tasks                                               ⌘ ,;',
-        \'Unite -toggle grep:%::FIXME|TODO|NOTE|XXX|COMBAK|@todo'],
-    \]
+      \['▷ search line                                                ⌘ ,f',
+      \'Unite -auto-preview -start-insert line'],
+      \['▷ search word under the cursor                               ⌘ [space]8',
+      \'UniteWithCursorWord -no-split -auto-preview line'],
+      \['▷ search outlines & tags (ctags)                             ⌘ ,t',
+      \'Unite -vertical -winwidth=40 -direction=topleft -toggle outline'],
+      \['▷ search marks',
+      \'Unite -auto-preview mark'],
+      \['▷ search folds',
+      \'Unite -vertical -winwidth=30 -auto-highlight fold'],
+      \['▷ search changes',
+      \'Unite change'],
+      \['▷ search jumps',
+      \'Unite jump'],
+      \['▷ search undos',
+      \'Unite undo'],
+      \['▷ search tasks                                               ⌘ ,;',
+      \'Unite -toggle grep:%::FIXME|TODO|NOTE|XXX|COMBAK|@todo'],
+      \]
 nnoremap <silent>[menu]f :Unite -silent menu:searching<CR>
 " }}}
 
 " yanks, registers & history menu {{{
 let g:unite_source_menu_menus.registers = {
-    \ 'description' : '      yanks, registers & history
-        \                            ⌘ [space]i',
-    \}
+      \ 'description' : '      yanks, registers & history
+      \                            ⌘ [space]i',
+      \}
 let g:unite_source_menu_menus.registers.command_candidates = [
-    \['▷ yanks                                                      ⌘ ,i',
-        \'Unite history/yank'],
-    \['▷ commands       (history)                                   ⌘ q:',
-        \'Unite history/command'],
-    \['▷ searches       (history)                                   ⌘ q/',
-        \'Unite history/search'],
-    \['▷ registers',
-        \'Unite register'],
-    \['▷ messages',
-        \'Unite output:messages'],
-    \['▷ undo tree      (gundo)                                     ⌘ ,u',
-        \'GundoToggle'],
-    \]
+      \['▷ yanks                                                      ⌘ ,i',
+      \'Unite history/yank'],
+      \['▷ commands       (history)                                   ⌘ q:',
+      \'Unite history/command'],
+      \['▷ searches       (history)                                   ⌘ q/',
+      \'Unite history/search'],
+      \['▷ registers',
+      \'Unite register'],
+      \['▷ messages',
+      \'Unite output:messages'],
+      \['▷ undo tree      (gundo)                                     ⌘ ,u',
+      \'GundoToggle'],
+      \]
 nnoremap <silent>[menu]i :Unite -silent menu:registers<CR>
 " }}}
 
 " spelling menu {{{
 let g:unite_source_menu_menus.spelling = {
-    \ 'description' : '       spell checking
-        \                                        ⌘ [space]s',
-    \}
+      \ 'description' : '       spell checking
+      \                                        ⌘ [space]s',
+      \}
 let g:unite_source_menu_menus.spelling.command_candidates = [
-    \['▷ spell checking in Spanish                                  ⌘ ,ss',
-        \'setlocal spell spelllang=es'],
-    \['▷ spell checking in English                                  ⌘ ,se',
-        \'setlocal spell spelllang=en'],
-    \['▷ turn off spell checking                                    ⌘ ,so',
-        \'setlocal nospell'],
-    \['▷ jumps to next bad spell word and show suggestions          ⌘ ,sc',
-        \'normal ,sc'],
-    \['▷ jumps to next bad spell word                               ⌘ ,sn',
-        \'normal ,sn'],
-    \['▷ suggestions                                                ⌘ ,sp',
-        \'normal ,sp'],
-    \['▷ add word to dictionary                                     ⌘ ,sa',
-        \'normal ,sa'],
-    \]
+      \['▷ spell checking in Spanish                                  ⌘ ,ss',
+      \'setlocal spell spelllang=es'],
+      \['▷ spell checking in English                                  ⌘ ,se',
+      \'setlocal spell spelllang=en'],
+      \['▷ turn off spell checking                                    ⌘ ,so',
+      \'setlocal nospell'],
+      \['▷ jumps to next bad spell word and show suggestions          ⌘ ,sc',
+      \'normal ,sc'],
+      \['▷ jumps to next bad spell word                               ⌘ ,sn',
+      \'normal ,sn'],
+      \['▷ suggestions                                                ⌘ ,sp',
+      \'normal ,sp'],
+      \['▷ add word to dictionary                                     ⌘ ,sa',
+      \'normal ,sa'],
+      \]
 nnoremap <silent>[menu]s :Unite -silent menu:spelling<CR>
 " }}}
 
 " text edition menu {{{
 let g:unite_source_menu_menus.text = {
-    \ 'description' : '           text edition
-        \                                          ⌘ [space]e',
-    \}
+      \ 'description' : '           text edition
+      \                                          ⌘ [space]e',
+      \}
 let g:unite_source_menu_menus.text.command_candidates = [
-    \['▷ toggle search results highlight                            ⌘ ,eq',
-        \'set invhlsearch'],
-    \['▷ toggle line numbers                                        ⌘ ,l',
-        \'call ToggleRelativeAbsoluteNumber()'],
-    \['▷ toggle wrapping                                            ⌘ ,ew',
-        \'call ToggleWrap()'],
-    \['▷ show hidden chars                                          ⌘ ,eh',
-        \'set list!'],
-    \['▷ toggle fold                                                ⌘ /',
-        \'normal za'],
-    \['▷ open all folds                                             ⌘ zR',
-        \'normal zR'],
-    \['▷ close all folds                                            ⌘ zM',
-        \'normal zM'],
-    \['▷ copy to the clipboard                                      ⌘ ,y',
-        \'normal ,y'],
-    \['▷ paste from the clipboard                                   ⌘ ,p',
-        \'normal ,p'],
-    \['▷ toggle paste mode                                          ⌘ ,P',
-        \'normal ,P'],
-    \['▷ remove trailing whitespaces                                ⌘ ,et',
-        \'normal ,et'],
-    \['▷ text statistics                                            ⌘ ,es',
-        \'Unite output:normal\ ,es -no-cursor-line'],
-    \['▷ show word frequency                                        ⌘ ,ef',
-        \'Unite output:WordFrequency'],
-    \['▷ show available digraphs',
-        \'digraphs'],
-    \['▷ insert lorem ipsum text',
-        \'exe "Loremipsum" input("numero de palabras: ")'],
-    \['▷ show current char info                                     ⌘ ga',
-        \'normal ga'],
-    \]
+      \['▷ toggle search results highlight                            ⌘ ,eq',
+      \'set invhlsearch'],
+      \['▷ toggle line numbers                                        ⌘ ,l',
+      \'call ToggleRelativeAbsoluteNumber()'],
+      \['▷ toggle wrapping                                            ⌘ ,ew',
+      \'call ToggleWrap()'],
+      \['▷ show hidden chars                                          ⌘ ,eh',
+      \'set list!'],
+      \['▷ toggle fold                                                ⌘ /',
+      \'normal za'],
+      \['▷ open all folds                                             ⌘ zR',
+      \'normal zR'],
+      \['▷ close all folds                                            ⌘ zM',
+      \'normal zM'],
+      \['▷ copy to the clipboard                                      ⌘ ,y',
+      \'normal ,y'],
+      \['▷ paste from the clipboard                                   ⌘ ,p',
+      \'normal ,p'],
+      \['▷ toggle paste mode                                          ⌘ ,P',
+      \'normal ,P'],
+      \['▷ remove trailing whitespaces                                ⌘ ,et',
+      \'normal ,et'],
+      \['▷ text statistics                                            ⌘ ,es',
+      \'Unite output:normal\ ,es -no-cursor-line'],
+      \['▷ show word frequency                                        ⌘ ,ef',
+      \'Unite output:WordFrequency'],
+      \['▷ show available digraphs',
+      \'digraphs'],
+      \['▷ insert lorem ipsum text',
+      \'exe "Loremipsum" input("numero de palabras: ")'],
+      \['▷ show current char info                                     ⌘ ga',
+      \'normal ga'],
+      \]
 nnoremap <silent>[menu]e :Unite -silent -winheight=20 menu:text <CR>
 " }}}
 
 " neobundle menu {{{
 let g:unite_source_menu_menus.neobundle = {
-    \ 'description' : '      plugins administration with neobundle
-        \                 ⌘ [space]n',
-    \}
+      \ 'description' : '      plugins administration with neobundle
+      \                 ⌘ [space]n',
+      \}
 let g:unite_source_menu_menus.neobundle.command_candidates = [
-    \['▷ neobundle',
-        \'Unite neobundle'],
-    \['▷ neobundle log',
-        \'Unite neobundle/log'],
-    \['▷ neobundle lazy',
-        \'Unite neobundle/lazy'],
-    \['▷ neobundle update',
-        \'Unite neobundle/update'],
-    \['▷ neobundle search',
-        \'Unite neobundle/search'],
-    \['▷ neobundle install',
-        \'Unite neobundle/install'],
-    \['▷ neobundle check',
-        \'Unite -no-empty output:NeoBundleCheck'],
-    \['▷ neobundle docs',
-        \'Unite output:NeoBundleDocs'],
-    \['▷ neobundle clean',
-        \'NeoBundleClean'],
-    \['▷ neobundle list',
-        \'Unite output:NeoBundleList'],
-    \['▷ neobundle direct edit',
-        \'NeoBundleDirectEdit'],
-    \]
+      \['▷ neobundle',
+      \'Unite neobundle'],
+      \['▷ neobundle log',
+      \'Unite neobundle/log'],
+      \['▷ neobundle lazy',
+      \'Unite neobundle/lazy'],
+      \['▷ neobundle update',
+      \'Unite neobundle/update'],
+      \['▷ neobundle search',
+      \'Unite neobundle/search'],
+      \['▷ neobundle install',
+      \'Unite neobundle/install'],
+      \['▷ neobundle check',
+      \'Unite -no-empty output:NeoBundleCheck'],
+      \['▷ neobundle docs',
+      \'Unite output:NeoBundleDocs'],
+      \['▷ neobundle clean',
+      \'NeoBundleClean'],
+      \['▷ neobundle list',
+      \'Unite output:NeoBundleList'],
+      \['▷ neobundle direct edit',
+      \'NeoBundleDirectEdit'],
+      \]
 nnoremap <silent>[menu]n :Unite -silent -start-insert menu:neobundle<CR>
 " }}}
 
 " git menu {{{
 let g:unite_source_menu_menus.git = {
-    \ 'description' : '            admin git repositories
-        \                                ⌘ [space]g',
-    \}
+      \ 'description' : '            admin git repositories
+      \                                ⌘ [space]g',
+      \}
 let g:unite_source_menu_menus.git.command_candidates = [
-    \['▷ tig                                                        ⌘ ,gt',
-        \'normal ,gt'],
-    \['▷ git viewer             (gitv)                              ⌘ ,gv',
-        \'normal ,gv'],
-    \['▷ git viewer - buffer    (gitv)                              ⌘ ,gV',
-        \'normal ,gV'],
-    \['▷ git status             (fugitive)                          ⌘ ,gs',
-        \'Gstatus'],
-    \['▷ git diff               (fugitive)                          ⌘ ,gd',
-        \'Gdiff'],
-    \['▷ git commit             (fugitive)                          ⌘ ,gc',
-        \'Gcommit'],
-    \['▷ git log                (fugitive)                          ⌘ ,gl',
-        \'exe "silent Glog | Unite -no-quit quickfix"'],
-    \['▷ git log - all          (fugitive)                          ⌘ ,gL',
-        \'exe "silent Glog -all | Unite -no-quit quickfix"'],
-    \['▷ git blame              (fugitive)                          ⌘ ,gb',
-        \'Gblame'],
-    \['▷ git add/stage          (fugitive)                          ⌘ ,gw',
-        \'Gwrite'],
-    \['▷ git checkout           (fugitive)                          ⌘ ,go',
-        \'Gread'],
-    \['▷ git rm                 (fugitive)                          ⌘ ,gR',
-        \'Gremove'],
-    \['▷ git mv                 (fugitive)                          ⌘ ,gm',
-        \'exe "Gmove " input("destino: ")'],
-    \['▷ git push               (fugitive, buffer output)           ⌘ ,gp',
-        \'Git! push'],
-    \['▷ git pull               (fugitive, buffer output)           ⌘ ,gP',
-        \'Git! pull'],
-    \['▷ git command            (fugitive, buffer output)           ⌘ ,gi',
-        \'exe "Git! " input("comando git: ")'],
-    \['▷ git edit               (fugitive)                          ⌘ ,gE',
-        \'exe "command Gedit " input(":Gedit ")'],
-    \['▷ git grep               (fugitive)                          ⌘ ,gg',
-        \'exe "silent Ggrep -i ".input("Pattern: ") | Unite -no-quit quickfix'],
-    \['▷ git grep - messages    (fugitive)                          ⌘ ,ggm',
-        \'exe "silent Glog --grep=".input("Pattern: ")." | Unite -no-quit quickfix"'],
-    \['▷ git grep - text        (fugitive)                          ⌘ ,ggt',
-        \'exe "silent Glog -S".input("Pattern: ")." | Unite -no-quit quickfix"'],
-    \['▷ git init                                                   ⌘ ,gn',
-        \'Unite output:echo\ system("git\ init")'],
-    \['▷ git cd                 (fugitive)',
-        \'Gcd'],
-    \['▷ git lcd                (fugitive)',
-        \'Glcd'],
-    \['▷ git browse             (fugitive)                          ⌘ ,gB',
-        \'Gbrowse'],
-    \['▷ github dashboard       (github-dashboard)                  ⌘ ,gD',
-        \'exe "GHD! " input("Username: ")'],
-    \['▷ github activity        (github-dashboard)                  ⌘ ,gA',
-        \'exe "GHA! " input("Username or repository: ")'],
-    \['▷ github issues & PR                                         ⌘ ,gS',
-        \'normal ,gS'],
-    \]
+      \['▷ tig                                                        ⌘ ,gt',
+      \'normal ,gt'],
+      \['▷ git viewer             (gitv)                              ⌘ ,gv',
+      \'normal ,gv'],
+      \['▷ git viewer - buffer    (gitv)                              ⌘ ,gV',
+      \'normal ,gV'],
+      \['▷ git status             (fugitive)                          ⌘ ,gs',
+      \'Gstatus'],
+      \['▷ git diff               (fugitive)                          ⌘ ,gd',
+      \'Gdiff'],
+      \['▷ git commit             (fugitive)                          ⌘ ,gc',
+      \'Gcommit'],
+      \['▷ git log                (fugitive)                          ⌘ ,gl',
+      \'exe "silent Glog | Unite -no-quit quickfix"'],
+      \['▷ git log - all          (fugitive)                          ⌘ ,gL',
+      \'exe "silent Glog -all | Unite -no-quit quickfix"'],
+      \['▷ git blame              (fugitive)                          ⌘ ,gb',
+      \'Gblame'],
+      \['▷ git add/stage          (fugitive)                          ⌘ ,gw',
+      \'Gwrite'],
+      \['▷ git checkout           (fugitive)                          ⌘ ,go',
+      \'Gread'],
+      \['▷ git rm                 (fugitive)                          ⌘ ,gR',
+      \'Gremove'],
+      \['▷ git mv                 (fugitive)                          ⌘ ,gm',
+      \'exe "Gmove " input("destino: ")'],
+      \['▷ git push               (fugitive, buffer output)           ⌘ ,gp',
+      \'Git! push'],
+      \['▷ git pull               (fugitive, buffer output)           ⌘ ,gP',
+      \'Git! pull'],
+      \['▷ git command            (fugitive, buffer output)           ⌘ ,gi',
+      \'exe "Git! " input("comando git: ")'],
+      \['▷ git edit               (fugitive)                          ⌘ ,gE',
+      \'exe "command Gedit " input(":Gedit ")'],
+      \['▷ git grep               (fugitive)                          ⌘ ,gg',
+      \'exe "silent Ggrep -i ".input("Pattern: ") | Unite -no-quit quickfix'],
+      \['▷ git grep - messages    (fugitive)                          ⌘ ,ggm',
+      \'exe "silent Glog --grep=".input("Pattern: ")." | Unite -no-quit quickfix"'],
+      \['▷ git grep - text        (fugitive)                          ⌘ ,ggt',
+      \'exe "silent Glog -S".input("Pattern: ")." | Unite -no-quit quickfix"'],
+      \['▷ git init                                                   ⌘ ,gn',
+      \'Unite output:echo\ system("git\ init")'],
+      \['▷ git cd                 (fugitive)',
+      \'Gcd'],
+      \['▷ git lcd                (fugitive)',
+      \'Glcd'],
+      \['▷ git browse             (fugitive)                          ⌘ ,gB',
+      \'Gbrowse'],
+      \['▷ github dashboard       (github-dashboard)                  ⌘ ,gD',
+      \'exe "GHD! " input("Username: ")'],
+      \['▷ github activity        (github-dashboard)                  ⌘ ,gA',
+      \'exe "GHA! " input("Username or repository: ")'],
+      \['▷ github issues & PR                                         ⌘ ,gS',
+      \'normal ,gS'],
+      \]
 nnoremap <silent>[menu]g :Unite -silent -winheight=29 -start-insert menu:git<CR>
 " }}}
 
 " code menu {{{
 let g:unite_source_menu_menus.code = {
-    \ 'description' : '           code tools
-        \                                            ⌘ [space]p',
-    \}
+      \ 'description' : '           code tools
+      \                                            ⌘ [space]p',
+      \}
 let g:unite_source_menu_menus.code.command_candidates = [
-    \['▷ run python code                            (pymode)        ⌘ ,r',
-        \'PymodeRun'],
-    \['▷ show docs for the current word             (pymode)        ⌘ K',
-        \'normal K'],
-    \['▷ insert a breakpoint                        (pymode)        ⌘ ,B',
-        \'normal ,B'],
-    \['▷ pylint check                               (pymode)        ⌘ ,n',
-        \'PymodeLint'],
-    \['▷ run with python2 in tmux panel             (vimux)         ⌘ ,rr',
-        \'normal ,rr'],
-    \['▷ run with python3 in tmux panel             (vimux)         ⌘ ,r3',
-        \'normal ,r3'],
-    \['▷ run with python2 & time in tmux panel      (vimux)         ⌘ ,rt',
-        \'normal ,rt'],
-    \['▷ run with pypy & time in tmux panel         (vimux)         ⌘ ,rp',
-        \'normal ,rp'],
-    \['▷ command prompt to run in a tmux panel      (vimux)         ⌘ ,rc',
-        \'VimuxPromptCommand'],
-    \['▷ repeat last command                        (vimux)         ⌘ ,rl',
-        \'VimuxRunLastCommand'],
-    \['▷ stop command execution in tmux panel       (vimux)         ⌘ ,rs',
-        \'VimuxInterruptRunner'],
-    \['▷ inspect tmux panel                         (vimux)         ⌘ ,ri',
-        \'VimuxInspectRunner'],
-    \['▷ close tmux panel                           (vimux)         ⌘ ,rq',
-        \'VimuxCloseRunner'],
-    \['▷ sort imports                               (isort)',
-        \'Isort'],
-    \['▷ go to definition                           (pymode-rope)   ⌘ C-C g',
-        \'call pymode#rope#goto_definition()'],
-    \['▷ find where a function is used              (pymode-rope)   ⌘ C-C f',
-        \'call pymode#rope#find_it()'],
-    \['▷ show docs for current word                 (pymode-rope)   ⌘ C-C d',
-        \'call pymode#rope#show_doc()'],
-    \['▷ reorganize imports                         (pymode-rope)   ⌘ C-C r o',
-        \'call pymode#rope#organize_imports()'],
-    \['▷ refactorize - rename                       (pymode-rope)   ⌘ C-C r r',
-        \'call pymode#rope#rename()'],
-    \['▷ refactorize - inline                       (pymode-rope)   ⌘ C-C r i',
-        \'call pymode#rope#inline()'],
-    \['▷ refactorize - move                         (pymode-rope)   ⌘ C-C r v',
-        \'call pymode#rope#move()'],
-    \['▷ refactorize - use function                 (pymode-rope)   ⌘ C-C r u',
-        \'call pymode#rope#use_function()'],
-    \['▷ refactorize - change signature             (pymode-rope)   ⌘ C-C r s',
-        \'call pymode#rope#signature()'],
-    \['▷ refactorize - rename current module        (pymode-rope)   ⌘ C-C r 1 r',
-        \'PymodeRopeRenameModule'],
-    \['▷ refactorize - module to package            (pymode-rope)   ⌘ C-C r 1 p',
-        \'PymodeRopeModuleToPackage'],
-    \['▷ syntastic toggle                           (syntastic)',
-        \'SyntasticToggleMode'],
-    \['▷ syntastic check & errors                   (syntastic)     ⌘ ,N',
-        \'normal ,N'],
-    \['▷ list virtualenvs                           (virtualenv)',
-        \'Unite output:VirtualEnvList'],
-    \['▷ activate virtualenv                        (virtualenv)',
-        \'VirtualEnvActivate'],
-    \['▷ deactivate virtualenv                      (virtualenv)',
-        \'VirtualEnvDeactivate'],
-    \['▷ run coverage2                              (coveragepy)',
-        \'call system("coverage2 run ".bufname("%")) | Coveragepy report'],
-    \['▷ run coverage3                              (coveragepy)',
-        \'call system("coverage3 run ".bufname("%")) | Coveragepy report'],
-    \['▷ toggle coverage report                     (coveragepy)',
-        \'Coveragepy session'],
-    \['▷ toggle coverage marks                      (coveragepy)',
-        \'Coveragepy show'],
-    \['▷ coffeewatch                                (coffeescript)  ⌘ ,rw',
-        \'CoffeeWatch vert'],
-    \['▷ count lines of code',
-        \'Unite -default-action= output:call\\ LinesOfCode()'],
-    \['▷ toggle indent lines                                        ⌘ ,L',
-        \'IndentLinesToggle'],
-    \]
+      \['▷ run python code                            (pymode)        ⌘ ,r',
+      \'PymodeRun'],
+      \['▷ show docs for the current word             (pymode)        ⌘ K',
+      \'normal K'],
+      \['▷ insert a breakpoint                        (pymode)        ⌘ ,B',
+      \'normal ,B'],
+      \['▷ pylint check                               (pymode)        ⌘ ,n',
+      \'PymodeLint'],
+      \['▷ run with python2 in tmux panel             (vimux)         ⌘ ,rr',
+      \'normal ,rr'],
+      \['▷ run with python3 in tmux panel             (vimux)         ⌘ ,r3',
+      \'normal ,r3'],
+      \['▷ run with python2 & time in tmux panel      (vimux)         ⌘ ,rt',
+      \'normal ,rt'],
+      \['▷ run with pypy & time in tmux panel         (vimux)         ⌘ ,rp',
+      \'normal ,rp'],
+      \['▷ command prompt to run in a tmux panel      (vimux)         ⌘ ,rc',
+      \'VimuxPromptCommand'],
+      \['▷ repeat last command                        (vimux)         ⌘ ,rl',
+      \'VimuxRunLastCommand'],
+      \['▷ stop command execution in tmux panel       (vimux)         ⌘ ,rs',
+      \'VimuxInterruptRunner'],
+      \['▷ inspect tmux panel                         (vimux)         ⌘ ,ri',
+      \'VimuxInspectRunner'],
+      \['▷ close tmux panel                           (vimux)         ⌘ ,rq',
+      \'VimuxCloseRunner'],
+      \['▷ sort imports                               (isort)',
+      \'Isort'],
+      \['▷ go to definition                           (pymode-rope)   ⌘ C-C g',
+      \'call pymode#rope#goto_definition()'],
+      \['▷ find where a function is used              (pymode-rope)   ⌘ C-C f',
+      \'call pymode#rope#find_it()'],
+      \['▷ show docs for current word                 (pymode-rope)   ⌘ C-C d',
+      \'call pymode#rope#show_doc()'],
+      \['▷ reorganize imports                         (pymode-rope)   ⌘ C-C r o',
+      \'call pymode#rope#organize_imports()'],
+      \['▷ refactorize - rename                       (pymode-rope)   ⌘ C-C r r',
+      \'call pymode#rope#rename()'],
+      \['▷ refactorize - inline                       (pymode-rope)   ⌘ C-C r i',
+      \'call pymode#rope#inline()'],
+      \['▷ refactorize - move                         (pymode-rope)   ⌘ C-C r v',
+      \'call pymode#rope#move()'],
+      \['▷ refactorize - use function                 (pymode-rope)   ⌘ C-C r u',
+      \'call pymode#rope#use_function()'],
+      \['▷ refactorize - change signature             (pymode-rope)   ⌘ C-C r s',
+      \'call pymode#rope#signature()'],
+      \['▷ refactorize - rename current module        (pymode-rope)   ⌘ C-C r 1 r',
+      \'PymodeRopeRenameModule'],
+      \['▷ refactorize - module to package            (pymode-rope)   ⌘ C-C r 1 p',
+      \'PymodeRopeModuleToPackage'],
+      \['▷ syntastic toggle                           (syntastic)',
+      \'SyntasticToggleMode'],
+      \['▷ syntastic check & errors                   (syntastic)     ⌘ ,N',
+      \'normal ,N'],
+      \['▷ list virtualenvs                           (virtualenv)',
+      \'Unite output:VirtualEnvList'],
+      \['▷ activate virtualenv                        (virtualenv)',
+      \'VirtualEnvActivate'],
+      \['▷ deactivate virtualenv                      (virtualenv)',
+      \'VirtualEnvDeactivate'],
+      \['▷ run coverage2                              (coveragepy)',
+      \'call system("coverage2 run ".bufname("%")) | Coveragepy report'],
+      \['▷ run coverage3                              (coveragepy)',
+      \'call system("coverage3 run ".bufname("%")) | Coveragepy report'],
+      \['▷ toggle coverage report                     (coveragepy)',
+      \'Coveragepy session'],
+      \['▷ toggle coverage marks                      (coveragepy)',
+      \'Coveragepy show'],
+      \['▷ coffeewatch                                (coffeescript)  ⌘ ,rw',
+      \'CoffeeWatch vert'],
+      \['▷ count lines of code',
+      \'Unite -default-action= output:call\\ LinesOfCode()'],
+      \['▷ toggle indent lines                                        ⌘ ,L',
+      \'IndentLinesToggle'],
+      \]
 nnoremap <silent>[menu]p :Unite -silent -winheight=42 menu:code<CR>
 " }}}
 
 " markdown menu {{{
 let g:unite_source_menu_menus.markdown = {
-    \ 'description' : '       preview markdown extra docs
-        \                           ⌘ [space]k',
-    \}
+      \ 'description' : '       preview markdown extra docs
+      \                           ⌘ [space]k',
+      \}
 let g:unite_source_menu_menus.markdown.command_candidates = [
-    \['▷ preview',
-        \'Me'],
-    \['▷ refresh',
-        \'Mer'],
-    \]
+      \['▷ preview',
+      \'Me'],
+      \['▷ refresh',
+      \'Mer'],
+      \]
 nnoremap <silent>[menu]k :Unite -silent menu:markdown<CR>
 " }}}
 
 " bookmarks menu {{{
 let g:unite_source_menu_menus.bookmarks = {
-    \ 'description' : '      bookmarks
-        \                                             ⌘ [space]m',
-    \}
+      \ 'description' : '      bookmarks
+      \                                             ⌘ [space]m',
+      \}
 let g:unite_source_menu_menus.bookmarks.command_candidates = [
-    \['▷ open bookmarks',
-        \'Unite bookmark:*'],
-    \['▷ add bookmark',
-        \'UniteBookmarkAdd'],
-    \]
+      \['▷ open bookmarks',
+      \'Unite bookmark:*'],
+      \['▷ add bookmark',
+      \'UniteBookmarkAdd'],
+      \]
 nnoremap <silent>[menu]m :Unite -silent menu:bookmarks<CR>
 " }}}
 
 " colorv menu {{{
 function! GetColorFormat()
-    let formats = {'r' : 'RGB',
-                  \'n' : 'NAME',
-                  \'s' : 'HEX',
-                  \'ar': 'RGBA',
-                  \'pr': 'RGBP',
-                  \'pa': 'RGBAP',
-                  \'m' : 'CMYK',
-                  \'l' : 'HSL',
-                  \'la' : 'HSLA',
-                  \'h' : 'HSV',
-                  \}
-    let formats_menu = ["\n"]
-    for [k, v] in items(formats)
-        call add(formats_menu, "  ".k."\t".v."\n")
-    endfor
-    let fsel = get(formats, input('Choose a format: '.join(formats_menu).'? '))
-    return fsel
+  let formats = {'r' : 'RGB',
+        \'n' : 'NAME',
+        \'s' : 'HEX',
+        \'ar': 'RGBA',
+        \'pr': 'RGBP',
+        \'pa': 'RGBAP',
+        \'m' : 'CMYK',
+        \'l' : 'HSL',
+        \'la' : 'HSLA',
+        \'h' : 'HSV',
+        \}
+  let formats_menu = ["\n"]
+  for [k, v] in items(formats)
+    call add(formats_menu, "  ".k."\t".v."\n")
+  endfor
+  let fsel = get(formats, input('Choose a format: '.join(formats_menu).'? '))
+  return fsel
 endfunction
 
 function! GetColorMethod()
-    let methods = {
-                   \'h' : 'Hue',
-                   \'s' : 'Saturation',
-                   \'v' : 'Value',
-                   \'m' : 'Monochromatic',
-                   \'a' : 'Analogous',
-                   \'3' : 'Triadic',
-                   \'4' : 'Tetradic',
-                   \'n' : 'Neutral',
-                   \'c' : 'Clash',
-                   \'q' : 'Square',
-                   \'5' : 'Five-Tone',
-                   \'6' : 'Six-Tone',
-                   \'2' : 'Complementary',
-                   \'p' : 'Split-Complementary',
-                   \'l' : 'Luma',
-                   \'g' : 'Turn-To',
-                   \}
-    let methods_menu = ["\n"]
-    for [k, v] in items(methods)
-        call add(methods_menu, "  ".k."\t".v."\n")
-    endfor
-    let msel = get(methods, input('Choose a method: '.join(methods_menu).'? '))
-    return msel
+  let methods = {
+        \'h' : 'Hue',
+        \'s' : 'Saturation',
+        \'v' : 'Value',
+        \'m' : 'Monochromatic',
+        \'a' : 'Analogous',
+        \'3' : 'Triadic',
+        \'4' : 'Tetradic',
+        \'n' : 'Neutral',
+        \'c' : 'Clash',
+        \'q' : 'Square',
+        \'5' : 'Five-Tone',
+        \'6' : 'Six-Tone',
+        \'2' : 'Complementary',
+        \'p' : 'Split-Complementary',
+        \'l' : 'Luma',
+        \'g' : 'Turn-To',
+        \}
+  let methods_menu = ["\n"]
+  for [k, v] in items(methods)
+    call add(methods_menu, "  ".k."\t".v."\n")
+  endfor
+  let msel = get(methods, input('Choose a method: '.join(methods_menu).'? '))
+  return msel
 endfunction
 
 let g:unite_source_menu_menus.colorv = {
-    \ 'description' : '         color management
-        \                                      ⌘ [space]c',
-    \}
+      \ 'description' : '         color management
+      \                                      ⌘ [space]c',
+      \}
 let g:unite_source_menu_menus.colorv.command_candidates = [
-    \['▷ open colorv                                                ⌘ ,cv',
-        \'ColorV'],
-    \['▷ open colorv with the color under the cursor                ⌘ ,cw',
-        \'ColorVView'],
-    \['▷ preview colors                                             ⌘ ,cpp',
-        \'ColorVPreview'],
-    \['▷ color picker                                               ⌘ ,cd',
-        \'ColorVPicker'],
-    \['▷ edit the color under the cursor                            ⌘ ,ce',
-        \'ColorVEdit'],
-    \['▷ edit the color under the cursor (and all the concurrences) ⌘ ,cE',
-        \'ColorVEditAll'],
-    \['▷ insert a color                                             ⌘ ,cii',
-        \'exe "ColorVInsert " .GetColorFormat()'],
-    \['▷ color list relative to the current                         ⌘ ,cgh',
-        \'exe "ColorVList " .GetColorMethod() "
-        \ ".input("number of colors? (optional): ")
-        \ " ".input("number of steps?  (optional): ")'],
-    \['▷ show colors list (Web W3C colors)                          ⌘ ,cn',
-        \'ColorVName'],
-    \['▷ choose color scheme (ColourLovers, Kuler)                  ⌘ ,css',
-        \'ColorVScheme'],
-    \['▷ show favorite color schemes                                ⌘ ,csf',
-        \'ColorVSchemeFav'],
-    \['▷ new color scheme                                           ⌘ ,csn',
-        \'ColorVSchemeNew'],
-    \['▷ create hue gradation between two colors',
-        \'exe "ColorVTurn2 " " ".input("Color 1 (hex): ")
-        \" ".input("Color 2 (hex): ")'],
-    \]
+      \['▷ open colorv                                                ⌘ ,cv',
+      \'ColorV'],
+      \['▷ open colorv with the color under the cursor                ⌘ ,cw',
+      \'ColorVView'],
+      \['▷ preview colors                                             ⌘ ,cpp',
+      \'ColorVPreview'],
+      \['▷ color picker                                               ⌘ ,cd',
+      \'ColorVPicker'],
+      \['▷ edit the color under the cursor                            ⌘ ,ce',
+      \'ColorVEdit'],
+      \['▷ edit the color under the cursor (and all the concurrences) ⌘ ,cE',
+      \'ColorVEditAll'],
+      \['▷ insert a color                                             ⌘ ,cii',
+      \'exe "ColorVInsert " .GetColorFormat()'],
+      \['▷ color list relative to the current                         ⌘ ,cgh',
+      \'exe "ColorVList " .GetColorMethod() "
+      \ ".input("number of colors? (optional): ")
+      \ " ".input("number of steps?  (optional): ")'],
+      \['▷ show colors list (Web W3C colors)                          ⌘ ,cn',
+      \'ColorVName'],
+      \['▷ choose color scheme (ColourLovers, Kuler)                  ⌘ ,css',
+      \'ColorVScheme'],
+      \['▷ show favorite color schemes                                ⌘ ,csf',
+      \'ColorVSchemeFav'],
+      \['▷ new color scheme                                           ⌘ ,csn',
+      \'ColorVSchemeNew'],
+      \['▷ create hue gradation between two colors',
+      \'exe "ColorVTurn2 " " ".input("Color 1 (hex): ")
+      \" ".input("Color 2 (hex): ")'],
+      \]
 nnoremap <silent>[menu]c :Unite -silent menu:colorv<CR>
 " }}}
 
 " vim menu {{{
 let g:unite_source_menu_menus.vim = {
-    \ 'description' : '            vim
-        \                                                   ⌘ [space]v',
-    \}
+      \ 'description' : '            vim
+      \                                                   ⌘ [space]v',
+      \}
 let g:unite_source_menu_menus.vim.command_candidates = [
-    \['▷ choose colorscheme',
-        \'Unite colorscheme -auto-preview'],
-    \['▷ mappings',
-        \'Unite mapping -start-insert'],
-    \['▷ edit configuration file (vimrc)',
-        \'edit $MYVIMRC'],
-    \['▷ choose filetype',
-        \'Unite -start-insert filetype'],
-    \['▷ vim help',
-        \'Unite -start-insert help'],
-    \['▷ vim commands',
-        \'Unite -start-insert command'],
-    \['▷ vim functions',
-        \'Unite -start-insert function'],
-    \['▷ vim runtimepath',
-        \'Unite -start-insert runtimepath'],
-    \['▷ vim command output',
-        \'Unite output'],
-    \['▷ unite sources',
-        \'Unite source'],
-    \['▷ kill process',
-        \'Unite -default-action=sigkill -start-insert process'],
-    \['▷ launch executable (dmenu like)',
-        \'Unite -start-insert launcher'],
-    \]
+      \['▷ choose colorscheme',
+      \'Unite colorscheme -auto-preview'],
+      \['▷ mappings',
+      \'Unite mapping -start-insert'],
+      \['▷ edit configuration file (vimrc)',
+      \'edit $MYVIMRC'],
+      \['▷ choose filetype',
+      \'Unite -start-insert filetype'],
+      \['▷ vim help',
+      \'Unite -start-insert help'],
+      \['▷ vim commands',
+      \'Unite -start-insert command'],
+      \['▷ vim functions',
+      \'Unite -start-insert function'],
+      \['▷ vim runtimepath',
+      \'Unite -start-insert runtimepath'],
+      \['▷ vim command output',
+      \'Unite output'],
+      \['▷ unite sources',
+      \'Unite source'],
+      \['▷ kill process',
+      \'Unite -default-action=sigkill -start-insert process'],
+      \['▷ launch executable (dmenu like)',
+      \'Unite -start-insert launcher'],
+      \]
 nnoremap <silent>[menu]v :Unite menu:vim -silent -start-insert<CR>
 " }}}
 " }}}
@@ -1264,7 +1347,7 @@ nnoremap <silent>[menu]v :Unite menu:vim -silent -start-insert<CR>
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 call unite#custom#source('file_mru,file_rec,file_rec/async,grep,locate',
-            \ 'ignore_pattern', join(['\.git/', 'tmp/', 'bundle/'], '\|'))
+      \ 'ignore_pattern', join(['\.git/', 'tmp/', 'bundle/'], '\|'))
 
 let g:unite_source_history_yank_enable = 1
 let g:unite_enable_start_insert = 0
@@ -1282,15 +1365,15 @@ let g:unite_source_file_mru_time_format = '(%d-%m-%Y %H:%M:%S) '
 let g:unite_source_directory_mru_time_format = '(%d-%m-%Y %H:%M:%S) '
 
 if executable('ag')
-    let g:unite_source_grep_command='ag'
-    let g:unite_source_grep_default_opts='--nocolor --nogroup -a -S'
-    let g:unite_source_grep_recursive_opt=''
-    let g:unite_source_grep_search_word_highlight = 1
+  let g:unite_source_grep_command='ag'
+  let g:unite_source_grep_default_opts='--nocolor --nogroup -a -S'
+  let g:unite_source_grep_recursive_opt=''
+  let g:unite_source_grep_search_word_highlight = 1
 elseif executable('ack')
-    let g:unite_source_grep_command='ack'
-    let g:unite_source_grep_default_opts='--no-group --no-color'
-    let g:unite_source_grep_recursive_opt=''
-    let g:unite_source_grep_search_word_highlight = 1
+  let g:unite_source_grep_command='ack'
+  let g:unite_source_grep_default_opts='--no-group --no-color'
+  let g:unite_source_grep_recursive_opt=''
+  let g:unite_source_grep_search_word_highlight = 1
 endif
 
 let g:junkfile#directory=expand($HOME."/.vim/tmp/junk")
@@ -1361,8 +1444,8 @@ nmap <silent><Leader>N :SyntasticCheck<CR>:Errors<CR>
 
 let g:syntastic_python_pylint_exe = "pylint2"
 let g:syntastic_mode_map = { 'mode': 'active',
-            \ 'active_filetypes': [],
-            \ 'passive_filetypes': ['python'] }
+      \ 'active_filetypes': [],
+      \ 'passive_filetypes': ['python'] }
 
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
