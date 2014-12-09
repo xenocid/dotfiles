@@ -44,20 +44,30 @@ NeoBundle 'Shougo/vimproc', { 'build': {
 " -------------------------------------------------------
 " {{{
 
+" UI framework to display information from various sources
 NeoBundle 'Shougo/unite.vim'
 
+" Unite source to provide an outline view for the buffer
 NeoBundleLazy 'Shougo/unite-outline', {'autoload':{'unite_sources':'outline'}}
+" ??? 
 NeoBundleLazy 'tsukkee/unite-help', {'autoload':{'unite_sources':'help'}}
+" Unite plugin to change colorschemes
 NeoBundleLazy 'ujihisa/unite-colorscheme', {'autoload':{'unite_sources':
             \ 'colorscheme'}}
+" Unite.vim plugin to find/open files easily, using locate command
 NeoBundleLazy 'ujihisa/unite-locate', {'autoload':{'unite_sources':'locate'}}
+" ???                                                           
 NeoBundleLazy 'thinca/vim-unite-history', { 'autoload' : { 'unite_sources' :
             \ ['history/command', 'history/search']}}
+" 
 NeoBundleLazy 'osyo-manga/unite-filetype', { 'autoload' : {'unite_sources' :
             \ 'filetype', }}
+" 
 NeoBundleLazy 'osyo-manga/unite-quickfix', {'autoload':{'unite_sources':
             \ ['quickfix', 'location_list']}}
+" 
 NeoBundleLazy 'osyo-manga/unite-fold', {'autoload':{'unite_sources':'fold'}}
+" 
 NeoBundleLazy 'tacroe/unite-mark', {'autoload':{'unite_sources':'mark'}}
 
 " File explorer (needed where ranger is not available)
@@ -72,20 +82,24 @@ NeoBundleLazy 'tacroe/unite-mark', {'autoload':{'unite_sources':'mark'}}
 " General Bundles
 " -------------------------------------------------------
 " {{{
-
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'idanarye/vim-merginal'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundleLazy 'gregsexton/gitv', {'depends':['tpope/vim-fugitive'],
-            \ 'autoload':{'commands':'Gitv'}}
-NeoBundle 'joedicastro/vim-github-dashboard'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'Valloric/YouCompleteMe'
+" Lean & mean status/tabline for vim
 NeoBundle 'bling/vim-airline'
+" Syntax-checking plugin for multiple programming languages
+NeoBundle 'scrooloose/syntastic'
+" Supertab combines multiple plugins on one tab button (like UltiSnips and YCM)
+NeoBundle 'ervandew/supertab'
+" Auto-completion engine for multiple programming languages
+NeoBundle 'Valloric/YouCompleteMe'
+" File manager for Vim
 NeoBundle 'scrooloose/nerdtree'
+" Comment/uncomment support plugin for multiple programming languages
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'SirVer/ultisnips'
+" Snippets repository
+NeoBundle 'honza/vim-snippets'
 NeoBundle 'vim-scripts/utl.vim'
+" Smart selection of content inside tags, quotes or parenthesis
+NeoBundle 'gorkunov/smartpairs.vim'
 NeoBundle 'delimitMate.vim'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'rizzatti/dash.vim'
@@ -121,28 +135,44 @@ NeoBundleLazy 'vim-scripts/zoomwintab.vim', {'autoload' :
              \{'commands' : 'ZoomWinTabToggle'}}
 " easily window resizing
 NeoBundle 'jimsei/winresizer'
+NeoBundle 'Yggdroot/indentLine'
+" }}}
+
+" -------------------------------------------------------
+" Git
+" -------------------------------------------------------
+" {{{
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'joedicastro/vim-github-dashboard'
+NeoBundleLazy 'gregsexton/gitv', {'depends':['tpope/vim-fugitive'],
+            \ 'autoload':{'commands':'Gitv'}}
+" Provides UI for dealing with Git branches
+NeoBundle 'idanarye/vim-merginal', {'depends':['tpope/vim-fugitive']}
+" }}}
 
 " -------------------------------------------------------
 " JSON
 " -------------------------------------------------------
-
+" {{{
 NeoBundleLazy 'vim-scripts/JSON.vim', {'autoload': {'filetypes': ['json']}}
 NeoBundleLazy 'tpope/vim-jdaddy', {'autoload': {'Filetypes': ['json']}}
+" }}}
 
 " -------------------------------------------------------
 " tmux
 " -------------------------------------------------------
-
+" {{{
 " Easily interacts with Tmux from Vim
 NeoBundle 'benmills/vimux'
 " Tmux config file syntax
 NeoBundleLazy 'vimez/vim-tmux', { 'autoload' : { 'filetypes' : 'conf'}}
-
+" }}}
 
 " -------------------------------------------------------
 " JavaScript Bundles
 " -------------------------------------------------------
-
+" {{{
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 NeoBundleLazy 'othree/javascript-libraries-syntax.vim', {'autoload':{'filetypes':['javascript']}}
 NeoBundleLazy 'marijnh/tern_for_vim', {
@@ -152,7 +182,6 @@ NeoBundleLazy 'marijnh/tern_for_vim', {
             \   'functions': ['tern#Complete', 'tern#Enable'],
             \   'filetypes' : 'javascript'
             \ }}
-NeoBundleLazy 'Yggdroot/indentLine', {'autoload': {'filetypes': ['python', 'javascript']}}
 NeoBundle 'kchmck/vim-coffee-script',{'autoload' : {
             \ 'commands' : [
                              \ 'CoffeeCompile', 'CoffeeLint', 'CoffeeMake',
@@ -160,29 +189,32 @@ NeoBundle 'kchmck/vim-coffee-script',{'autoload' : {
             \ 'filetypes' : ['coffee']
             \ }}
 NeoBundleLazy 'jaxbot/brolink.vim.git', {'autoload':{'filetypes':['javascript', 'css', 'html']}}
-
-
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+" }}}
+
+
+" -------------------------------------------------------
+" CoffeeScript Bundles
+" -------------------------------------------------------
+" {{{
+NeoBundle 'kchmck/vim-coffee-script'
+" }}}
 
 " -------------------------------------------------------
 " Python
 " -------------------------------------------------------
-
 NeoBundleLazy 'klen/python-mode', {'autoload': {'filetypes': ['python']}}
-NeoBundleLazy 'Yggdroot/indentLine', {'autoload': {'filetypes': ['python']}}
 NeoBundleLazy 'alfredodeza/coveragepy.vim', {'autoload': {'filetypes': ['python']}}
 
 " -------------------------------------------------------
 " HTML/CSS Bundles
 " -------------------------------------------------------
-
 NeoBundle 'mattn/emmet-vim'
 
 " -------------------------------------------------------
 " Markdown
 " -------------------------------------------------------
-
 NeoBundleLazy 'joedicastro/vim-markdown'
 NeoBundleLazy 'joedicastro/vim-markdown-extra-preview'
 NeoBundleLazy 'itspriddle/vim-marked', {'autoload': { 'filetypes': ['markdown']}} 
@@ -190,7 +222,6 @@ NeoBundleLazy 'itspriddle/vim-marked', {'autoload': { 'filetypes': ['markdown']}
 " -------------------------------------------------------
 " Ruby
 " -------------------------------------------------------
-
 NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': { 'filetypes': ['ruby']}}
 NeoBundleLazy 'tpope/vim-rails', {'autoload': { 'filetypes': ['ruby']}}
 NeoBundleLazy 'tpope/vim-rake', {'autoload': { 'filetypes': ['ruby']}}
@@ -203,13 +234,11 @@ NeoBundleLazy 'tpope/vim-dispatch', {'autoload': { 'filetypes': ['ruby']}}
 " -------------------------------------------------------
 " Scala
 " -------------------------------------------------------
-
 NeoBundleLazy 'derekwyatt/vim-scala', {'autoload': { 'filetypes': ['scala']}}
 
 " -------------------------------------------------------
-" Colorschemes {{{
+" Colorschemes
 " -------------------------------------------------------
-
 " Dark themes
 " Improved terminal version of molokai, almost identical to the GUI one
 NeoBundle 'joedicastro/vim-molokai256'
@@ -218,18 +247,15 @@ NeoBundleLazy 'sjl/badwolf', { 'autoload' :
 			\ { 'unite_sources' : 'colorscheme', }}
 NeoBundleLazy 'nielsmadan/harlequin', { 'autoload' :
 			\ { 'unite_sources' : 'colorscheme', }}
-
 " Light themes
 NeoBundleLazy 'vim-scripts/summerfruit256.vim', { 'autoload' :
 			\ { 'unite_sources' : 'colorscheme', }}
 NeoBundleLazy 'joedicastro/vim-github256', { 'autoload' :
 			\ { 'unite_sources' : 'colorscheme', }}
-
 " Make terminal themes from GUI themes
 NeoBundleLazy 'godlygeek/csapprox', { 'autoload' :
 			\ { 'commands' : ['CSApprox', 'CSApproxSnapshot']}}
 
-" }}}
 
 " First-time plugins installation
 if iCanHazNeoBundle == 0
@@ -243,10 +269,12 @@ endif
 NeoBundleCheck
 
 call neobundle#end()
+" }}}
 
 " ============================================================================
 " Configuration
 " ============================================================================
+" {{{
 
 filetype plugin indent on
 
@@ -324,6 +352,7 @@ command! WQ wq
 command! Wa wa
 command! WA wa
 
+" You do not use arrow keys in vim
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
@@ -333,20 +362,12 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
-" Make a dir if no exists {{{
-
-function! MakeDirIfNoExists(path)
-	if !isdirectory(expand(a:path))
-		call mkdir(expand(a:path), "p")
-	endif
-endfunction
 
 " }}}}
 
 " -----------------------------------------------------------------------------
 " Backups
 " -----------------------------------------------------------------------------
-
 set backup
 set noswapfile
 set backupdir=$HOME/.tmp/backup/
@@ -354,12 +375,22 @@ set undodir=$HOME/.tmp/undo/
 set directory=$HOME/.tmp/swap/
 set viminfo+=n$HOME/.tmp/viminfo
 
+" Make a dir if no exists {{{
+function! MakeDirIfNoExists(path)
+	if !isdirectory(expand(a:path))
+		call mkdir(expand(a:path), "p")
+	endif
+endfunction
+
 " make this dirs if no exists previously
 silent! call MakeDirIfNoExists(&undodir)
 silent! call MakeDirIfNoExists(&backupdir)
 silent! call MakeDirIfNoExists(&directory)
 
-" Wildmenu {{{
+" -----------------------------------------------------------------------------
+" Wildmenu
+" -----------------------------------------------------------------------------
+" {{{
 
 set wildmenu                        " Command line autocompletion
 set wildmode=list:longest,full      " Shows all the options
@@ -371,10 +402,12 @@ set wildignore+=*.jar                            " java archives
 set wildignore+=*.pyc                            " Python byte code
 set wildignore+=*.stats                          " Pylint stats
 
-" }}}}
+" }}}
 
-
-" Tabs, space and wrapping {{{
+" -----------------------------------------------------------------------------
+" Tabs, space and wrapping
+" -----------------------------------------------------------------------------
+" {{{
 
 set expandtab                  " spaces instead of tabs
 set tabstop=4                  " a tab = four spaces
@@ -412,6 +445,12 @@ endfunction
 
 nmap <silent><Leader>ew :call ToggleWrap()<CR>
 
+" }}}
+
+" -----------------------------------------------------------------------------
+" Tabs, space and wrapping
+" -----------------------------------------------------------------------------
+" {{{
 
 syntax enable                  " enable the syntax highlight
 set background=dark            " set a dark background
@@ -422,14 +461,20 @@ else
     colorscheme molokai256
 endif
 
+" }}}
+
+" -----------------------------------------------------------------------------
 " New windows {{{
+" -----------------------------------------------------------------------------
 
 nnoremap <Leader>v <C-w>v
 nnoremap <Leader>h <C-w>s
 
 " }}}
 
+" -----------------------------------------------------------------------------
 " Fast window moves {{{
+" -----------------------------------------------------------------------------
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -438,7 +483,10 @@ nnoremap <C-l> <C-w>l
 
 " }}}
 
+
+" -----------------------------------------------------------------------------
 " Fast window & buffer close and kill {{{
+" -----------------------------------------------------------------------------
 
 nnoremap <Leader>k <C-w>c
 nnoremap <silent><Leader>K :bd<CR>
@@ -448,7 +496,9 @@ nnoremap <silent><Leader>K :bd<CR>
 " Resize the divisions if the Vim window size changes {{{
 au VimResized * exe "normal! \<c-w>="
 
+" -----------------------------------------------------------------------------
 " Folding {{{
+" -----------------------------------------------------------------------------
 
 set foldmethod=marker
 
@@ -459,7 +509,9 @@ vnoremap \ za
 
 " }}}}
 
+" -----------------------------------------------------------------------------
 " Cut/Paste {{{
+" -----------------------------------------------------------------------------
 
 " to/from the clipboard
 map <Leader>y "*y
@@ -470,19 +522,25 @@ map <Leader>P :set invpaste<CR>
 
 " }}}}
 
+" -----------------------------------------------------------------------------
 "  Quick saving {{{
+" -----------------------------------------------------------------------------
 
 nmap <silent> <Leader>w :update<CR>
 
 " }}}
 
+" -----------------------------------------------------------------------------
 " Delete trailing whitespaces {{{
+" -----------------------------------------------------------------------------
 
 nmap <silent><Leader>et :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " }}}
 
- " Toggle the Quickfix window {{{
+" -----------------------------------------------------------------------------
+" Toggle the Quickfix window {{{
+" -----------------------------------------------------------------------------
 
 function! s:QuickfixToggle()
     for i in range(1, winnr('$'))
@@ -501,7 +559,9 @@ nnoremap <silent> <Leader>q :ToggleQuickfix<CR>
 
 " }}}
 
+" -----------------------------------------------------------------------------
 " Text statistics {{{
+" -----------------------------------------------------------------------------
 
 " get the total of lines, words, chars and bytes (and for the current position)
 map <Leader>es g<C-G>
@@ -525,7 +585,9 @@ map <Leader>ef :Unite output:WordFrequency<CR>
 
 " }}}
 
+" -----------------------------------------------------------------------------
 " Count lines of code {{{
+" -----------------------------------------------------------------------------
 
 function! LinesOfCode()
     echo system('cloc --quiet '.bufname("%"))
@@ -533,13 +595,17 @@ endfunction
 
 "}}}
 
+" -----------------------------------------------------------------------------
 " Toggle the search results highlighting {{{
+" -----------------------------------------------------------------------------
 
 map <silent><Leader>eq :set invhlsearch<CR>
 
 " }}}
  
+" -----------------------------------------------------------------------------
 " Move between Vim and Tmux windows {{{
+" -----------------------------------------------------------------------------
 
 if exists('$TMUX')
   function! TmuxOrSplitSwitch(wincmd, tmuxdir)
@@ -568,13 +634,17 @@ endif
 
 " }}}
  
+" -----------------------------------------------------------------------------
 " Quick exiting without save {{{
+" -----------------------------------------------------------------------------
 
 nnoremap <Leader>`` :qa!<CR>
 
 " }}}
 
+" -----------------------------------------------------------------------------
 " Make the Y behavior similar to D & C {{{
+" -----------------------------------------------------------------------------
 
 nnoremap Y y$
 
@@ -583,18 +653,24 @@ nnoremap Y y$
 " ============================================================================
 " Plugin Settings
 " ============================================================================
+" {{{
 
 " ----------------------------------------------------------------------------
 " YouCompleteMe
 " ----------------------------------------------------------------------------
-
+" {{{
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+" }}}
 
 " ----------------------------------------------------------------------------
 " Unite
 " ----------------------------------------------------------------------------
+" {{{
 
 let g:unite_source_history_yank_enable = 1
 
@@ -1224,7 +1300,7 @@ let g:junkfile#directory=expand($HOME."/.vim/tmp/junk")
 " ----------------------------------------------------------------------------
 " vim-airline
 " ----------------------------------------------------------------------------
-
+" {{{
 set noshowmode
 
 let g:airline_detect_modified=1
@@ -1241,10 +1317,12 @@ let g:airline#extensions#tabline#enabled = 2
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_min_count = 1"
 let g:airline#extensions#hunks#non_zero_only = 1
+" }}}
 
 " ----------------------------------------------------------------------------
 " NerdTree
 " ----------------------------------------------------------------------------
+" {{{
 
 nnoremap <leader>nn :NERDTreeToggle<CR>
 nnoremap <leader>nf :NERDTreeFind<CR>
@@ -1253,15 +1331,20 @@ let NERDTreeChDirMode=2 " Change the NERDTree directory to the root node
 let g:NERDTreeWinSize=40
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd vimenter * if !argc() | NERDTree | endif    " Automatically open NERDtree, if vim launched w/o files specified
+" }}}
 
 " ----------------------------------------------------------------------------
 " NerdCommenter
 " ----------------------------------------------------------------------------
+" {{{
 
 map <leader>/ <plug>NERDCommenterToggle<CR>
 imap <leader>/ <Esc><plug>NERDCommenterToggle<CR>i"
+" }}}
 
- " indentLine {{{
+" ----------------------------------------------------------------------------
+" indentLine {{{
+" ----------------------------------------------------------------------------
 
 map <silent> <Leader>L :IndentLinesToggle<CR>
 let g:indentLine_enabled = 0
@@ -1270,25 +1353,9 @@ let g:indentLine_color_term = 239
 
 " }}}
 
-" PythonMode {{{
-
-nmap <silent><Leader>n :PymodeLint<CR>
-
-let g:pymode_breakpoint_bind = '<Leader>B'
-
-let g:pymode_lint = 1
-let g:pymode_lint_on_write = 0
-let g:pymode_lint_checkers = ['pylint', 'pep8', 'mccabe', 'pep257']
-let g:pymode_lint_ignore = ''
-let g:pymode_virtualenv = 0
-let g:pymode_rope = 1
-
-let g:pymode_rope_completion = 0
-let g:pymode_rope_complete_on_dot = 1
-
-" }}}
-
+" ----------------------------------------------------------------------------
 " Syntastic {{{
+" ----------------------------------------------------------------------------
 
 nmap <silent><Leader>N :SyntasticCheck<CR>:Errors<CR>
 
@@ -1304,7 +1371,9 @@ let g:syntastic_style_warning_symbol  = '⚡'
 
 " }}}
 
- " vimux {{{
+" ----------------------------------------------------------------------------
+" vimux {{{
+" ----------------------------------------------------------------------------
 
 let g:VimuxUseNearestPane = 1
 
@@ -1321,9 +1390,21 @@ map <Leader>rq :VimuxCloseRunner<CR>
 
 " }}}
 
-" zoomwintab {{{
-
+" ----------------------------------------------------------------------------
+" zoomwintab
+" ----------------------------------------------------------------------------
+" {{{
 map <Leader>z :ZoomWinTabToggle<CR>
+" }}}
+
+" ----------------------------------------------------------------------------
+" UltiSnips
+" ----------------------------------------------------------------------------
+" {{{
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" }}}
 
 " }}}
 
@@ -1347,6 +1428,21 @@ au FileType ruby set shiftwidth=2
 " -------------------------------------------------------
 " Python
 " -------------------------------------------------------
+" PythonMode {{{
+nmap <silent><Leader>n :PymodeLint<CR>
+
+let g:pymode_breakpoint_bind = '<Leader>B'
+
+let g:pymode_lint = 1
+let g:pymode_lint_on_write = 0
+let g:pymode_lint_checkers = ['pylint', 'pep8', 'mccabe', 'pep257']
+let g:pymode_lint_ignore = ''
+let g:pymode_virtualenv = 0
+let g:pymode_rope = 1
+
+let g:pymode_rope_completion = 0
+let g:pymode_rope_complete_on_dot = 1
+" }}}
 
 " -------------------------------------------------------
 " Haskell
