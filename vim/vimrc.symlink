@@ -386,6 +386,9 @@ set autoread                    " update a open file edited outside of Vim
 " -----------------------------------------------------------------------------
 " {{{
 set t_Co=256                    " Number of colors to use in the terminal
+" Prevent Vim from clobbering the scrollback buffer. See
+" http://www.shallowsky.com/linux/noaltscreen.html
+set t_ti= t_te=
 set encoding=utf-8              " setup the encoding to UTF-8"
 set textwidth=80                " Set default text width
 set colorcolumn=81              " Highlight a column to show default text width
@@ -396,7 +399,7 @@ set ttyfast                     " better screen redraw
 set title                       " set the terminal title to the current file
 set showcmd                     " shows partial commands
 set hidden                      " hide the inactive buffers
-set number          		    " show line numbers
+set number          		        " show line numbers
 set ruler                       " sets a permanent rule
 set lazyredraw                  " only redraws if it is needed
 set ttimeoutlen=0               " toggle between modes almost instantly
@@ -405,8 +408,8 @@ set virtualedit=all             " to edit where there is no actual character
 set splitbelow                  " open new splits on the right and below
 set splitright                  " feels more natural than vim's defaults
 set cmdheight=2                 " Number of screen lines to use for the command-line
-set laststatus=2    		    " Always display the status line
-set scrolloff=3     		    " Number of screen lines to show around the cursor
+set laststatus=2    		        " Always display the status line
+set scrolloff=3     		        " Number of screen lines to show around the cursor
 set sidescrolloff=2             " Minimal number of columns to show around cursor
 set go-=T                       " hide the toolbar for gvim
 set go-=m                       " hide the menu for gvim
@@ -434,7 +437,7 @@ map <silent><Leader>eq :set invhlsearch<CR>
 " History and permanent undo levels
 " -----------------------------------------------------------------------------
 " {{{
-set history=1000
+set history=1000                 " remember more commands and search history
 set undofile
 set undoreload=1000
 " }}}
@@ -762,6 +765,37 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " ----------------------------------------------------------------------------
 " Unite
+" {{{
+
+let g:unite_source_history_yank_enable = 1
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+
+nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
+nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
+nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
+nnoremap <leader>s :Unite grep:.<cr>
+
+" files
+nnoremap <silent><Leader>o :Unite -no-split -silent -start-insert file<CR>
+nnoremap <silent><Leader>O :Unite -silent -start-insert file_rec/async<CR>
+nnoremap <silent><Leader>m :Unite -silent file_mru<CR>
+" buffers
+nnoremap <silent><Leader>b :Unite -silent buffer<CR>
+" tabs
+nnoremap <silent><Leader>B :Unite -silent tab<CR>
+" buffer search
+nnoremap <silent><Leader>f :Unite -silent -no-split -start-insert -auto-preview
+      \ line<CR>
+nnoremap <silent>[menu]8 :UniteWithCursorWord -silent -no-split -auto-preview
+      \ line<CR>
+" yankring
+nnoremap <silent><Leader>i :Unite -silent history/yank<CR>
+" grep
+nnoremap <silent><Leader>a :Unite -silent -no-quit grep<CR>
+" help
+nnoremap <silent> g<C-h> :UniteWithCursorWord -silent help<CR>}
 " tasks
 nnoremap <silent><Leader>; :Unite -silent -toggle
       \ grep:%::FIXME\|TODO\|NOTE\|XXX\|COMBAK\|@todo<CR>
