@@ -292,6 +292,8 @@ NeoBundleLazy 'slim-template/vim-slim.git', {'autoload': { 'filetypes': ['slim']
 NeoBundleLazy 'tpope/vim-haml', {'autoload': { 'filetypes': ['haml']}} 
 " Run Ruby tests (supports RSpec, Cucumber, Test::Unit, MiniTest
 NeoBundle 'skalnik/vim-vroom'
+" Ruby refactoring
+NeoBundleLazy 'ecomba/vim-ruby-refactoring', {'autoload': {'filetypes': ['ruby']}}
 
 " }}}
 
