@@ -73,6 +73,8 @@ NeoBundleLazy 'Shougo/vimfiler', {'autoload' : { 'commands' : ['VimFiler']}}
 " Junk files
 NeoBundleLazy 'Shougo/junkfile.vim', {'autoload':{'commands':'JunkfileOpen',
       \ 'unite_sources':['junkfile','junkfile/new']}}
+" Most Recently Used files list as a source
+NeoBundleLazy 'Shougo/neomru.vim', {'autoload':{'unite_sources':'mru'}}
 
 " }}}
 
