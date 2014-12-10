@@ -270,8 +270,10 @@ NeoBundleLazy 'itspriddle/vim-marked', {'autoload': { 'filetypes': ['markdown']}
 
 " ???
 NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': { 'filetypes': ['ruby']}}
-" ???
+" Intelligent support for Rails projects
 NeoBundleLazy 'tpope/vim-rails', {'autoload': { 'filetypes': ['ruby']}}
+" Interact with Bundler
+NeoBundleLazy 'tpope/vim-bundler', {'autoload': {'filetypes': ['ruby']}}
 " ???
 NeoBundleLazy 'tpope/vim-rake', {'autoload': { 'filetypes': ['ruby']}}
 " ???
@@ -284,6 +286,10 @@ NeoBundleLazy 't9md/vim-ruby-xmpfilter', {'autoload': { 'filetypes': ['ruby']}}
 NeoBundleLazy 'ecomba/vim-ruby-refactoring', {'autoload': { 'filetypes': ['ruby']}}
 " ???
 NeoBundleLazy 'tpope/vim-dispatch', {'autoload': { 'filetypes': ['ruby']}}
+" ???
+NeoBundleLazy 'slim-template/vim-slim.git', {'autoload': { 'filetypes': ['ruby']}} 
+" ???
+NeoBundleLazy 'tpope/vim-haml', {'autoload': { 'filetypes': ['haml']}} 
 
 " }}}
 
