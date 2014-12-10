@@ -286,10 +286,12 @@ NeoBundleLazy 't9md/vim-ruby-xmpfilter', {'autoload': { 'filetypes': ['ruby']}}
 NeoBundleLazy 'ecomba/vim-ruby-refactoring', {'autoload': { 'filetypes': ['ruby']}}
 " ???
 NeoBundleLazy 'tpope/vim-dispatch', {'autoload': { 'filetypes': ['ruby']}}
-" ???
-NeoBundleLazy 'slim-template/vim-slim.git', {'autoload': { 'filetypes': ['ruby']}} 
-" ???
+" Syntax highlight for Slim
+NeoBundleLazy 'slim-template/vim-slim.git', {'autoload': { 'filetypes': ['slim']}} 
+" Syntax highlight for HAML
 NeoBundleLazy 'tpope/vim-haml', {'autoload': { 'filetypes': ['haml']}} 
+" Run Ruby tests (supports RSpec, Cucumber, Test::Unit, MiniTest
+NeoBundle 'skalnik/vim-vroom'
 
 " }}}
 
