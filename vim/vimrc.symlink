@@ -754,7 +754,6 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 " Unite
 " ----------------------------------------------------------------------------
 " {{{
-
 let g:unite_source_history_yank_enable = 1
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -796,6 +795,7 @@ nnoremap <silent><Leader>t :Unite -silent -vertical -winwidth=40
 nnoremap <silent><Leader>d :Unite -silent junkfile/new junkfile<CR>
 
 " menus {{{
+
 let g:unite_source_menu_menus = {}
 
 " menu prefix key (for all Unite menus) {{{
@@ -1406,7 +1406,6 @@ let g:airline#extensions#hunks#non_zero_only = 1
 " NerdTree
 " ----------------------------------------------------------------------------
 " {{{
-
 nnoremap <leader>nn :NERDTreeToggle<CR>
 nnoremap <leader>nf :NERDTreeFind<CR>
 let NERDTreeShowBookmarks=1
@@ -1420,26 +1419,24 @@ autocmd vimenter * if !argc() | NERDTree | endif    " Automatically open NERDtre
 " NerdCommenter
 " ----------------------------------------------------------------------------
 " {{{
-
 map <leader>/ <plug>NERDCommenterToggle<CR>
 imap <leader>/ <Esc><plug>NERDCommenterToggle<CR>i"
 " }}}
 
 " ----------------------------------------------------------------------------
-" indentLine {{{
+" indentLine
 " ----------------------------------------------------------------------------
-
+" {{{
 map <silent> <Leader>L :IndentLinesToggle<CR>
 let g:indentLine_enabled = 0
 let g:indentLine_char = '┊'
 let g:indentLine_color_term = 239
-
 " }}}
 
 " ----------------------------------------------------------------------------
-" Syntastic {{{
+" Syntastic
 " ----------------------------------------------------------------------------
-
+" {{{
 nmap <silent><Leader>N :SyntasticCheck<CR>:Errors<CR>
 
 let g:syntastic_python_pylint_exe = "pylint2"
@@ -1451,13 +1448,12 @@ let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_style_error_symbol  = '⚡'
 let g:syntastic_style_warning_symbol  = '⚡'
-
 " }}}
 
 " ----------------------------------------------------------------------------
-" vimux {{{
+" vimux
 " ----------------------------------------------------------------------------
-
+" {{{
 let g:VimuxUseNearestPane = 1
 
 map <Leader>rr :call VimuxRunCommand('clear;cd '.expand("%:p:h") .' ;python '.bufname("%"))<CR>
@@ -1470,7 +1466,6 @@ map <Leader>rl :VimuxRunLastCommand<CR>
 map <Leader>rs :VimuxInterruptRunner<CR>
 map <Leader>ri :VimuxInspectRunner<CR>
 map <Leader>rq :VimuxCloseRunner<CR>
-
 " }}}
 
 " ----------------------------------------------------------------------------
@@ -1494,19 +1489,26 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " =======================================================
 " Language-specific Settings
 " =======================================================
+" {{{
 
 " -------------------------------------------------------
 " JavaScript
 " -------------------------------------------------------
+" {{{
 au FileType javascript set shiftwidth=2
 au FileType javascript set tabstop=2
 au FileType javascript set softtabstop=2
 au BufRead,BufNewFile,BufWrite {*.json} set ft=javascript"
+" }}}
 
 " -------------------------------------------------------
 " Ruby
 " -------------------------------------------------------
+" {{{
 au FileType ruby set shiftwidth=2
+au FileType ruby set tabstop=2
+au FileType ruby set softtabstop=2
+" }}}
 
 " -------------------------------------------------------
 " Python
@@ -1530,23 +1532,37 @@ let g:pymode_rope_complete_on_dot = 1
 " -------------------------------------------------------
 " Haskell
 " -------------------------------------------------------
+" {{{
+" }}}
 
 " -------------------------------------------------------
 " Go
 " -------------------------------------------------------
+" {{{
+" }}}
 
 " -------------------------------------------------------
 " C/C++
 " -------------------------------------------------------
+" {{{
+" }}}
 
 " -------------------------------------------------------
 " Java
 " -------------------------------------------------------
+" {{{
+" }}}
 
 " -------------------------------------------------------
 " Scala
 " -------------------------------------------------------
+" {{{
+" }}}
 
 " -------------------------------------------------------
 " Swift
 " -------------------------------------------------------
+" {{{
+" }}}
+
+" }}}
