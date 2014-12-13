@@ -2,7 +2,7 @@
 
 name: gpn-server
 root: ~/Dev/RN/gpn-server
-pre_window: rbenv shell 1.9.3-p547
+pre_window: rbenv shell 2.0.0-p598
 
 windows:
   - editor: vim .
