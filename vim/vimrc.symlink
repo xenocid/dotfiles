@@ -268,7 +268,7 @@ NeoBundleLazy 'itspriddle/vim-marked', {'autoload': { 'filetypes': ['markdown']}
 " -------------------------------------------------------
 " {{{
 
-" ???
+" Basic Ruby syntax highlight and programming support
 NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': { 'filetypes': ['ruby']}}
 " Intelligent support for Rails projects
 NeoBundleLazy 'tpope/vim-rails', {'autoload': { 'filetypes': ['ruby']}}
@@ -276,9 +276,9 @@ NeoBundleLazy 'tpope/vim-rails', {'autoload': { 'filetypes': ['ruby']}}
 NeoBundleLazy 'tpope/vim-bundler', {'autoload': {'filetypes': ['ruby']}}
 " ???
 NeoBundleLazy 'tpope/vim-rake', {'autoload': { 'filetypes': ['ruby']}}
-" ???
+" Support for Cucumber/Gherkin
 NeoBundleLazy 'tpope/vim-cucumber', {'autoload': { 'filetypes': ['ruby']}}
-" ???
+" Support for RSpec
 NeoBundleLazy 'thoughtbot/vim-rspec', {'autoload': { 'filetypes': ['ruby']}}
 " ???
 NeoBundleLazy 't9md/vim-ruby-xmpfilter', {'autoload': { 'filetypes': ['ruby']}}
@@ -302,7 +302,7 @@ NeoBundleLazy 'ecomba/vim-ruby-refactoring', {'autoload': {'filetypes': ['ruby']
 " -------------------------------------------------------
 " {{{
 
-" ???
+" Scala syntax highlight and programming support
 NeoBundleLazy 'derekwyatt/vim-scala', {'autoload': { 'filetypes': ['scala']}}
 
 " }}}
@@ -312,7 +312,7 @@ NeoBundleLazy 'derekwyatt/vim-scala', {'autoload': { 'filetypes': ['scala']}}
 " -------------------------------------------------------
 " {{{
 
-" ???
+" Erlang syntax highlight and programming support 
 NeoBundleLazy 'jimenezrick/vimerl', {'autoload': { 'filetypes': ['erlang']}}
 
 " }}}
@@ -322,7 +322,7 @@ NeoBundleLazy 'jimenezrick/vimerl', {'autoload': { 'filetypes': ['erlang']}}
 " -------------------------------------------------------
 " {{{
 
-" ???
+" Rust syntax highlight and programming support 
 NeoBundleLazy 'wting/rust.vim', {'autoload': { 'filetypes': ['rust']}}
 
 " }}}
@@ -1556,6 +1556,28 @@ au BufRead,BufNewFile,BufWrite {*.json} set ft=javascript"
 au FileType ruby set shiftwidth=2
 au FileType ruby set tabstop=2
 au FileType ruby set softtabstop=2
+
+" xmpfilter settings
+"
+let g:xmpfilter_cmd = "seeing_is_believing"
+
+autocmd FileType ruby nmap <buffer> <D-m> <Plug>(seeing_is_believing-mark)
+autocmd FileType ruby xmap <buffer> <D-m> <Plug>(seeing_is_believing-mark)
+autocmd FileType ruby imap <buffer> <D-m> <Plug>(seeing_is_believing-mark)
+
+autocmd FileType ruby nmap <buffer> <D-c> <Plug>(seeing_is_believing-clean)
+autocmd FileType ruby xmap <buffer> <D-c> <Plug>(seeing_is_believing-clean)
+autocmd FileType ruby imap <buffer> <D-c> <Plug>(seeing_is_believing-clean)
+
+" xmpfilter compatible
+autocmd FileType ruby nmap <buffer> <D-r> <Plug>(seeing_is_believing-run_-x)
+autocmd FileType ruby xmap <buffer> <D-r> <Plug>(seeing_is_believing-run_-x)
+autocmd FileType ruby imap <buffer> <D-r> <Plug>(seeing_is_believing-run_-x)
+
+" auto insert mark at appropriate spot.
+autocmd FileType ruby nmap <buffer> <F5> <Plug>(seeing_is_believing-run)
+autocmd FileType ruby xmap <buffer> <F5> <Plug>(seeing_is_believing-run)
+autocmd FileType ruby imap <buffer> <F5> <Plug>(seeing_is_believing-run)
 " }}}
 
 " -------------------------------------------------------
