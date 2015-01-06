@@ -8,7 +8,7 @@ ln -s ~/Dropbox/Apps/PopClip ~/Library/Application\ Support/PopClip
 touch $HOME/.hushlogin
 
 # Link Dropbox/Inbox if it exists to ~/Downloads
-if [ -d ~/Dropbox/Inbox ]
+if [ ! -d ~/Dropbox/Inbox ]
 then
     ln -s ~/Dropbox/Inbox ~/Downloads 
 fi
